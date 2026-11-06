@@ -1007,13 +1007,97 @@ html[data-hsk-theme] #vocabPane .buttons button{padding:6px 7px;font-size:12px}
 .adv-read-view{max-width:900px;margin:auto}
 @media(max-width:600px){.adv-word-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.adv-word{padding:9px 5px}.adv-hanzi{font-size:29px}.adv-grammar-grid,.adv-road-list{grid-template-columns:1fr}.adv-filters label{flex:1}.adv-hero{padding:16px}}
 
+</style><style id="hsk-ai-chat-styles">
+/* HSK 1-6 dedicated Chinese speaking practice */
+#aiChatPane[hidden]{display:none!important}
+#aiChatPane{background:transparent;color:var(--cn-ink,#253b31);min-height:70vh}
+.ai-shell{width:min(1600px,100%);margin:0 auto;padding:18px clamp(12px,2vw,30px) 65px;box-sizing:border-box}
+.ai-hero{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(125deg,#f8fff0,#fff7e9 70%,#e8f2df);border:1px solid #c7ddc4;border-radius:22px;padding:20px 24px;margin-bottom:16px;box-shadow:0 6px 25px rgba(34,77,55,.07)}
+.ai-hero:after{content:"竹 · 中文 · 交流";position:absolute;right:14px;bottom:5px;opacity:.06;font-size:42px;font-weight:900;pointer-events:none}
+.ai-hero h1{font-size:clamp(23px,2.8vw,35px);margin:5px 0;color:#274637;line-height:1.2}
+.ai-hero p{color:#60756b;margin:4px 0 0;line-height:1.5}
+.ai-kicker{font-weight:850;font-size:11px;letter-spacing:.16em;color:#b45646}
+.ai-bear{font-size:52px;line-height:1.1;filter:drop-shadow(0 4px 3px #0001)}
+.ai-grid{display:grid;grid-template-columns:minmax(235px,305px) minmax(0,1fr);gap:16px;align-items:start}
+.ai-panel,.ai-chat-card{background:#fffefa;border:1px solid #d4e0ce;border-radius:18px;box-shadow:0 5px 22px rgba(36,66,42,.065);min-width:0}
+.ai-panel{padding:18px;position:relative}
+.ai-panel label{display:block;font-weight:750;font-size:13px;margin:13px 0 6px;color:#415a48}
+.ai-panel label:first-child{margin-top:0}
+.ai-panel select,.ai-panel input[type="url"]{box-sizing:border-box;width:100%;min-height:39px;border:1px solid #cbdac5;border-radius:10px;padding:8px 10px;color:#243c2e;background:#fff;font:inherit;font-size:14px}
+.ai-panel button,.ai-chat-card button{font:inherit;cursor:pointer;transition:background .15s,transform .15s}
+.ai-panel button:disabled,.ai-chat-card button:disabled{opacity:.53;cursor:not-allowed}
+.ai-mode-set{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ai-mode-set button{border:1px solid #d0dcca;border-radius:10px;padding:10px 5px;background:#f9fbf5;color:#3b5945;font-size:13px;font-weight:700}
+.ai-mode-set button.active{background:#315c40;color:#fff;border-color:#315c40}
+.ai-option{display:flex!important;align-items:center;gap:8px;font-weight:550!important;margin-top:12px!important;cursor:pointer}
+.ai-option input{accent-color:#2e704d}
+.ai-small-note{font-size:12px;line-height:1.55;color:#6b796c;margin:11px 0}
+.ai-link{color:#1f775b;text-decoration:underline;text-underline-offset:3px}
+.ai-main-action{width:100%;margin-top:14px;background:#2e694a;color:white;border:1px solid #2e694a;border-radius:11px;padding:12px;font-weight:800!important}
+.ai-minor-action{width:100%;margin-top:7px;background:#fff;border:1px solid #dfd5c6;border-radius:10px;padding:9px;color:#74513a;font-weight:700!important}
+.ai-current-status{display:flex;align-items:center;gap:7px;font-weight:750;font-size:12px;color:#4c6e5c;background:#f1f7ef;border:1px solid #d5e5d0;border-radius:10px;padding:10px;margin-top:12px;line-height:1.4}
+.ai-status-dot{display:inline-block;background:#df9b4d;border-radius:50%;width:9px;height:9px;flex:none}
+.ai-status-dot.live{background:#32a86b}
+.ai-chat-card{overflow:hidden;display:flex;flex-direction:column;min-height:650px}
+.ai-chat-head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(90deg,#e5f2e2,#fffaf0);border-bottom:1px solid #d9e5d3;padding:15px 17px}
+.ai-chat-head strong{display:block;font-size:16px;color:#28513a}
+.ai-chat-head small{font-size:12px;color:#6b7e6b}
+.ai-chat-actions{display:flex;gap:5px}
+.ai-chat-actions button{background:#fff;border:1px solid #d9e1d5;border-radius:8px;padding:8px;color:#4d6154;font-size:13px}
+.ai-messages{padding:17px 16px;min-height:360px;max-height:55vh;overflow:auto;flex:1;background:radial-gradient(circle at 95% 5%,#f0f9e7 0,transparent 26%),#fffcf6;overscroll-behavior:contain}
+.ai-message{max-width:min(83%,720px);margin-bottom:16px;display:flex;flex-direction:column;gap:4px;clear:both}
+.ai-message.user{margin-left:auto;align-items:flex-end}
+.ai-message.assistant{margin-right:auto;align-items:flex-start}
+.ai-speaker{font-weight:800;font-size:11px;color:#7b8a7b;padding:0 4px}
+.ai-bubble{width:fit-content;max-width:100%;background:#fff;border:1px solid #dee7d8;border-radius:16px 16px 16px 4px;padding:12px 15px;box-shadow:0 2px 7px #00000008;overflow-wrap:anywhere}
+.ai-message.user .ai-bubble{background:#deeddc;border-color:#c8dfc4;border-radius:16px 16px 4px 16px}
+.ai-zh{font-size:clamp(17px,1.6vw,22px);line-height:1.7;font-weight:740;color:#244a34;white-space:pre-wrap}
+.ai-pin{font-size:13px;line-height:1.6;color:#a65a3e;margin-top:2px}
+.ai-translation{font-size:13px;line-height:1.65;color:#626f60;margin-top:3px;white-space:pre-wrap}
+.ai-feedback{font-size:12px;line-height:1.6;border-left:3px solid #e2b96e;margin-top:8px;padding:6px 9px;background:#fff8e5;color:#6e5737;white-space:pre-wrap}
+.ai-bubble-tools{display:flex;gap:8px;margin-top:7px;align-items:center}
+.ai-bubble-tools button{border:0;background:transparent;color:#4b7b5b;padding:3px;font-size:12px}
+.ai-bubble-tools button:hover{text-decoration:underline}
+.ai-demo-notice{background:#fff4dc;border-top:1px solid #f0dfbd;border-bottom:1px solid #f0dfbd;font-size:12px;color:#836a40;padding:9px 16px;line-height:1.5}
+.ai-helperbar{display:flex;gap:7px;flex-wrap:wrap;padding:10px 13px 0;background:#fffefa}
+.ai-helperbar button{border:1px solid #d6e5ce;background:#f5fbf1;border-radius:999px;color:#3d714d;font-size:12px;padding:6px 11px}
+.ai-compose{padding:12px 14px 15px;border-top:1px solid #e3e9dd;background:#fffefa}
+.ai-compose-row{display:flex;gap:9px;align-items:flex-end}
+.ai-compose textarea{box-sizing:border-box;flex:1;min-width:0;max-height:140px;min-height:69px;resize:vertical;border:1px solid #cbdccb;background:#fff;border-radius:12px;padding:11px;font:inherit;color:#233d2f;font-size:15px;line-height:1.5}
+.ai-compose textarea:focus{outline:2px solid #8dc6a3}
+.ai-send{background:#2b6947;color:#fff;border:0;border-radius:11px;padding:12px 15px;min-height:48px;font-weight:800!important;white-space:nowrap}
+.ai-compose-tools{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin:8px 0 0}
+.ai-compose-tools button{background:#f7faf5;border:1px solid #d3dfd0;padding:6px 11px;border-radius:8px;color:#3a6951;font-size:12px}
+.ai-compose-tools small{color:#7d8779;font-size:11px}
+.ai-ai-warning{padding:9px 13px;background:#fff7e9;color:#99633d;border:1px solid #f4dcc2;border-radius:9px;font-size:12px;line-height:1.5;margin-top:10px}
+.ai-turnstile{display:flex;justify-content:center;margin:8px 0}
+.ai-empty{padding:40px 24px;text-align:center;color:#708570;font-size:14px;line-height:1.7}
+.ai-empty b{display:block;font-size:19px;color:#35513d;margin-bottom:7px}
+.ai-typing{font-style:italic;color:#79927e;font-size:13px;padding:6px}
+@media(max-width:870px){.ai-grid{grid-template-columns:1fr}.ai-panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}.ai-panel .ai-full{grid-column:1/-1}.ai-chat-card{min-height:590px}.ai-messages{max-height:58vh}}
+@media(max-width:540px){.ai-shell{padding:9px 9px 45px}.ai-hero{padding:15px;gap:6px}.ai-bear{font-size:35px}.ai-panel{grid-template-columns:1fr;padding:12px}.ai-full{grid-column:auto}.ai-chat-card{min-height:66vh;border-radius:13px}.ai-message{max-width:96%}.ai-chat-head{padding:10px}.ai-messages{padding:12px;max-height:55vh}.ai-bubble{padding:10px 12px}.ai-compose-row{gap:6px}.ai-send{padding:10px}.ai-hero h1{font-size:22px}}
+
+/* Skill-memory controls and site themes */
+.ai-memory-panel{border:1px solid #c9dfc4;background:#f4fbef;padding:12px;border-radius:13px;margin-top:12px}
+.ai-memory-panel h3{font-size:16px;margin:0 0 6px;color:#2f5e3f}
+.ai-memory-status{background:#fff;border:1px solid #d5e5d1;border-radius:10px;padding:10px;line-height:1.6;font-size:13px;color:#46614b}
+.ai-memory-status p{margin:4px 0}
+.ai-memory-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}
+.ai-memory-actions button{background:#fff;border:1px solid #cddcc8;border-radius:9px;padding:7px;font-size:12px;color:#456b4f}
+#aiConnect{width:100%;margin-top:9px}
+#aiChatPane .ai-zh{font-family:system-ui,'Noto Sans SC','Microsoft YaHei',sans-serif}
+html[data-hsk-theme='night'] #aiChatPane .ai-hero,html[data-hsk-theme='night'] #aiChatPane .ai-panel,html[data-hsk-theme='night'] #aiChatPane .ai-chat-card{filter:none}
+#aiChatPane .ai-message.ai-user{align-items:flex-end}
+#aiChatPane .ai-message.ai-assistant{align-items:flex-start}
+@media(max-width:430px){#aiChatPane .ai-grid{grid-template-columns:minmax(0,1fr)}#aiChatPane .ai-shell{width:100%}#aiChatPane .ai-chat-card{min-width:0}}
+
 </style></head><body><nav class="app-tabs" aria-label="Chọn nội dung học">
  <div class="app-header">
   <div class="brand-lockup" aria-label="Học tiếng Trung HSK 3.0"><span class="panda-mark" aria-hidden="true"></span><span class="brand-seal" aria-hidden="true">学</span><span class="brand-copy"><span class="brand-overline">Học tiếng Trung mỗi ngày</span><span class="brand-name">HSK 3.0 <span class="brand-chinese" lang="zh-Hans">学汉语</span></span></span></div>
   <span class="brand-aside">Từ nhận biết đến sử dụng thành thạo</span>
   <div class="hsk-lang-wrap" data-hsk-no-translate="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18"/></svg><label for="hskLanguage">Ngôn ngữ · Language</label><select id="hskLanguage" aria-label="Chọn ngôn ngữ / Choose language"><option value="vi">🇻🇳 Tiếng Việt</option><option value="en">🇬🇧 English</option></select></div><button type="button" id="hskCloudShortcut" class="hsk-cloud-open" data-hsk-no-translate="true" title="Google Drive Sync">☁️ <span id="hskCloudShortcutName" class="hsk-cloud-account-name">Tài khoản</span></button><button type="button" class="theme-shortcut" id="themeShortcut" data-hsk-no-translate="true" title="Tùy chỉnh giao diện / Customize appearance"><span aria-hidden="true">🎨</span><span data-ui-vi="Giao diện" data-ui-en="Themes">Giao diện</span></button><button type="button" class="nav-road-btn" id="navRoadQuick" onclick="document.getElementById('tabRoadmap').click()" aria-label="Mở lộ trình học tập">◷ Lộ trình của tôi</button>
  </div>
- <div class="app-tabs-inner"><button type="button" id="tabVocab" class="app-tab selected" aria-selected="true" role="tab" aria-controls="vocabPane">📖 Từ vựng · 1.000</button><button type="button" id="tabGrammar" class="app-tab" aria-selected="false" role="tab" aria-controls="grammarPane">✍️ Ngữ pháp · 175 bài</button><button type="button" id="tabSentence" class="app-tab" aria-selected="false" role="tab" aria-controls="sentencePane">🧩 Ghép câu · 301 câu</button><button type="button" id="tabListening" class="app-tab" aria-selected="false" role="tab" aria-controls="listeningPane">🎧 Nghe – Chính tả · 301</button><button type="button" id="tabReading" class="app-tab" aria-selected="false" role="tab" aria-controls="readingPane">📚 Đọc hiểu · 62 bài</button><button type="button" id="tabSrs" class="app-tab" aria-selected="false" role="tab" aria-controls="srsPane">🔁 Ôn tập SRS</button><button type="button" id="tabRoadmap" class="app-tab" aria-selected="false" role="tab" aria-controls="roadmapPane">🗓️ Lộ trình 20 tuần</button><button type="button" id="tabAdvanced" class="app-tab" aria-selected="false" role="tab" aria-controls="advancedPane" data-hsk-no-translate="true">🎓 <span data-ui-vi="HSK 4–6 · Nâng cao" data-ui-en="HSK 4–6 · Advanced">HSK 4–6 · Nâng cao</span></button><button class="app-tab theme-tab" id="tabTheme" type="button" role="tab" aria-controls="themePane" aria-selected="false" data-hsk-no-translate="true"><span data-ui-vi="🎨 Tùy chỉnh" data-ui-en="🎨 Appearance">🎨 Tùy chỉnh</span></button><div class="hsk-legal-nav" role="group" aria-label="Thông tin pháp lý / Legal information" data-hsk-no-translate="true"><a href="./privacy.html" data-ui-vi="🔒 Bảo mật" data-ui-en="🔒 Privacy">🔒 Bảo mật</a><a href="./terms.html" data-ui-vi="📜 Điều khoản" data-ui-en="📜 Terms">📜 Điều khoản</a></div></div><div class="panda-welcome" data-hsk-no-translate="true"><div class="panda-welcome-copy"><div class="panda-welcome-kicker">✧ HSK 3.0 · 学中文</div><strong data-ui-vi="你好！Cùng học tiếng Trung nhé!" data-ui-en="你好！Let's learn Chinese together!">你好！Cùng học tiếng Trung nhé!</strong><span data-ui-vi="Học đều mỗi ngày, tiến bộ qua từng nét chữ." data-ui-en="Learn a little every day, one character at a time.">Học đều mỗi ngày, tiến bộ qua từng nét chữ.</span></div><div class="panda-welcome-metrics"><span><b>1.000</b><small data-ui-vi="Từ vựng" data-ui-en="Words">Từ vựng</small></span><span><b>175</b><small data-ui-vi="Bài ngữ pháp" data-ui-en="Grammar lessons">Bài ngữ pháp</small></span><span><b>301</b><small data-ui-vi="Câu luyện" data-ui-en="Sentences">Câu luyện</small></span></div></div></nav><section id="vocabPane" aria-label="Học từ vựng HSK 1 đến 3"><main>
+ <div class="app-tabs-inner"><button type="button" id="tabVocab" class="app-tab selected" aria-selected="true" role="tab" aria-controls="vocabPane">📖 Từ vựng · 1.000</button><button type="button" id="tabGrammar" class="app-tab" aria-selected="false" role="tab" aria-controls="grammarPane">✍️ Ngữ pháp · 175 bài</button><button type="button" id="tabSentence" class="app-tab" aria-selected="false" role="tab" aria-controls="sentencePane">🧩 Ghép câu · 301 câu</button><button type="button" id="tabListening" class="app-tab" aria-selected="false" role="tab" aria-controls="listeningPane">🎧 Nghe – Chính tả · 301</button><button type="button" id="tabReading" class="app-tab" aria-selected="false" role="tab" aria-controls="readingPane">📚 Đọc hiểu · 62 bài</button><button type="button" id="tabSrs" class="app-tab" aria-selected="false" role="tab" aria-controls="srsPane">🔁 Ôn tập SRS</button><button type="button" id="tabRoadmap" class="app-tab" aria-selected="false" role="tab" aria-controls="roadmapPane">🗓️ Lộ trình 20 tuần</button><button type="button" id="tabAdvanced" class="app-tab" aria-selected="false" role="tab" aria-controls="advancedPane" data-hsk-no-translate="true">🎓 <span data-ui-vi="HSK 4–6 · Nâng cao" data-ui-en="HSK 4–6 · Advanced">HSK 4–6 · Nâng cao</span></button><button type="button" id="tabAiChat" class="app-tab" role="tab" aria-selected="false" aria-controls="aiChatPane" data-hsk-no-translate="true">🤖 <span data-ui-vi="Hội thoại AI · HSK 1–6" data-ui-en="AI Speaking · HSK 1–6">Hội thoại AI · HSK 1–6</span></button><button class="app-tab theme-tab" id="tabTheme" type="button" role="tab" aria-controls="themePane" aria-selected="false" data-hsk-no-translate="true"><span data-ui-vi="🎨 Tùy chỉnh" data-ui-en="🎨 Appearance">🎨 Tùy chỉnh</span></button><div class="hsk-legal-nav" role="group" aria-label="Thông tin pháp lý / Legal information" data-hsk-no-translate="true"><a href="./privacy.html" data-ui-vi="🔒 Bảo mật" data-ui-en="🔒 Privacy">🔒 Bảo mật</a><a href="./terms.html" data-ui-vi="📜 Điều khoản" data-ui-en="📜 Terms">📜 Điều khoản</a></div></div><div class="panda-welcome" data-hsk-no-translate="true"><div class="panda-welcome-copy"><div class="panda-welcome-kicker">✧ HSK 3.0 · 学中文</div><strong data-ui-vi="你好！Cùng học tiếng Trung nhé!" data-ui-en="你好！Let's learn Chinese together!">你好！Cùng học tiếng Trung nhé!</strong><span data-ui-vi="Học đều mỗi ngày, tiến bộ qua từng nét chữ." data-ui-en="Learn a little every day, one character at a time.">Học đều mỗi ngày, tiến bộ qua từng nét chữ.</span></div><div class="panda-welcome-metrics"><span><b>1.000</b><small data-ui-vi="Từ vựng" data-ui-en="Words">Từ vựng</small></span><span><b>175</b><small data-ui-vi="Bài ngữ pháp" data-ui-en="Grammar lessons">Bài ngữ pháp</small></span><span><b>301</b><small data-ui-vi="Câu luyện" data-ui-en="Sentences">Câu luyện</small></span></div></div></nav><section id="vocabPane" aria-label="Học từ vựng HSK 1 đến 3"><main>
 <div class="v-hero"><div class="v-hero-copy"><div class="tag">NGHE · ĐỌC THEO · TỰ KIỂM TRA</div><h1>HSK 3.0 · Từ vựng theo chủ đề</h1><p class="intro">1.000 mục từ HSK 1–3 theo đề cương thi công bố tháng 11/2025. Chọn chủ đề hoặc cấp độ, nghe phát âm và đánh dấu những từ bạn đã học.</p></div>
 <div class="v-hero-art" aria-hidden="true"><div class="v-character-grid"><span lang="zh-Hans">学</span></div><div class="v-art-caption" lang="zh-Hans">学以致用 · 每日精进</div></div></div><div class="stats"><div class="stat"><b>300</b><span>HSK 1 · từ mới</span></div><div class="stat"><b>200</b><span>HSK 2 · từ mới</span></div><div class="stat"><b>500</b><span>HSK 3 · từ mới</span></div><div class="stat"><b id="learnedCount">0 / 1.000</b><span>Đã đánh dấu học</span></div></div><div class="progress" aria-label="Tiến độ đã học"><div id="bar"></div></div><p class="note">Âm thanh đã tích hợp. Sau khi tải file, bạn có thể học ngoại tuyến bằng Chrome hoặc Edge.</p><div class="controls"><label>Chủ đề<select id="topic"><option value="0">Tất cả chủ đề</option><option value="1">Con người và gia đình (75)</option><option value="2">Cơ thể và ngoại hình (22)</option><option value="3">Sức khỏe và chăm sóc (16)</option><option value="4">Thiên nhiên và môi trường (45)</option><option value="5">Đồ ăn và thức uống (46)</option><option value="6">Nhà ở và đồ dùng (33)</option><option value="7">Quần áo và hành lý (12)</option><option value="8">Trường học và ngôn ngữ (61)</option><option value="9">Công việc và xã hội (27)</option><option value="10">Mua sắm và tiền bạc (22)</option><option value="11">Đi lại và du lịch (76)</option><option value="12">Vị trí và phương hướng (50)</option><option value="13">Thời gian và tần suất (74)</option><option value="14">Số đếm và lượng từ (59)</option><option value="15">Màu sắc (7)</option><option value="16">Đặc điểm và so sánh (53)</option><option value="17">Cảm xúc và suy nghĩ (49)</option><option value="18">Giao tiếp và quan hệ (54)</option><option value="19">Công nghệ và truyền thông (17)</option><option value="20">Nghệ thuật và giải trí (13)</option><option value="21">Thể thao và vận động (21)</option><option value="22">Sinh hoạt và hành động (56)</option><option value="23">Ngữ pháp và cách diễn đạt (112)</option></select></label><label>Cấp độ<select id="level"><option value="all">HSK 1–3 · tất cả</option><option value="1">HSK 1 · 300 mục</option><option value="2">HSK 2 · 200 mục mới</option><option value="3">HSK 3 · 500 mục mới</option><option value="12">HSK 1–2 · 500 mục</option></select></label><label>Tiến độ<select id="learnedFilter"><option value="all">Tất cả</option><option value="new">Chưa đánh dấu</option><option value="done">Đã học</option></select></label><label class="search">Tìm kiếm<input id="search" placeholder="Chữ Hán, pinyin hoặc nghĩa tiếng Việt"></label><label>Tốc độ<select id="speed"><option value="0.75">Chậm · 0,75×</option><option value="1" selected>Bình thường · 1×</option></select></label><label>Lặp mỗi từ<select id="repeat"><option value="1">1 lần</option><option value="2" selected>2 lần</option><option value="3">3 lần</option></select></label></div><div class="toolbar"><button class="primary" id="playPage">▶ Nghe trang này</button><button id="playAll">▶ Nghe danh sách đã lọc</button><button id="stop">■ Dừng</button><button id="hide" aria-pressed="false">Ẩn nghĩa để tự kiểm tra</button><button id="hidePinyin" aria-pressed="false">Ẩn Pinyin</button><button id="hideBoth" aria-pressed="false">Ẩn cả Pinyin + nghĩa</button><button id="export">Tải danh sách CSV</button></div><section id="vocabQuizSection" data-hsk-no-translate aria-labelledby="vqHeading">
  <div class="vq-top"><div><div class="vq-kicker" id="vqKicker">复习测验 · TỰ KIỂM TRA</div><h2 id="vqHeading">Kiểm tra từ vựng đã học</h2><p class="vq-caption" id="vqCaption">Chỉ lấy câu hỏi từ các từ bạn đã đánh dấu Đã học.</p></div><div class="vq-stamp" aria-hidden="true">考</div></div>
@@ -2442,6 +2526,38 @@ apply();
 })();
 
 </script>
+<section id="aiChatPane" aria-label="AI Chinese conversation practice" hidden data-hsk-no-translate="true">
+ <div class="ai-shell">
+  <header class="ai-hero"><div><div class="ai-kicker">🐼 HSK 1–6 · 中文口语练习</div><h1 id="aiTitle">Trò chuyện tiếng Trung cùng AI</h1><p id="aiSubtitle">Luyện tình huống thực tế · Sửa câu · Luyện phản xạ bằng tiếng Trung</p></div><div class="ai-bear" aria-hidden="true">🐼🎋</div></header>
+  <div class="ai-grid">
+   <aside class="ai-panel" aria-label="Chat practice settings">
+    <div><label for="aiLevel" id="aiLblLevel">Trình độ của bạn</label><select id="aiLevel"><option value="1">HSK 1 · Cơ bản</option><option value="2">HSK 2</option><option value="3" selected>HSK 3</option><option value="4">HSK 4</option><option value="5">HSK 5</option><option value="6">HSK 6 · Nâng cao</option></select></div>
+    <div><label for="aiTopic" id="aiLblTopic">Chủ đề giao tiếp</label><select id="aiTopic"><option value="greeting">👋 Chào hỏi & giới thiệu</option><option value="family">👨‍👩‍👧 Gia đình & bạn bè</option><option value="school">📚 Trường học & học tập</option><option value="food">🥟 Ăn uống & nhà hàng</option><option value="shopping">🛍️ Mua sắm & giá cả</option><option value="travel">🚄 Du lịch & chỉ đường</option><option value="hobby">🎵 Sở thích & cuối tuần</option><option value="daily">☀️ Sinh hoạt hằng ngày</option><option value="health">🌿 Sức khỏe & thói quen</option><option value="work">💼 Công việc & phỏng vấn</option><option value="culture">🏮 Văn hóa & lễ hội</option><option value="opinion">💭 Ý kiến & thảo luận</option></select></div>
+    <div class="ai-full"><label id="aiLblMode">Hình thức luyện tập</label><div class="ai-mode-set"><button type="button" class="active" data-ai-style="guided" aria-pressed="true" id="aiGuided">🎯 Có hướng dẫn</button><button type="button" data-ai-style="free" aria-pressed="false" id="aiFree">💬 Tự do</button></div></div>
+    <div><label class="ai-option"><input type="checkbox" id="aiShowPin" checked/><span id="aiLblPin">Hiện Pinyin</span></label><label class="ai-option"><input type="checkbox" id="aiShowTranslation" checked/><span id="aiLblTranslation">Hiện nghĩa</span></label></div>
+    <div><label class="ai-option"><input type="checkbox" id="aiSpeakOnReply"/><span id="aiLblSpeech">Tự phát âm câu AI</span></label><p id="aiLocalPrivacy" class="ai-small-note">Hội thoại chỉ lưu trên thiết bị này, không tự tải lên Google Drive. Khi dùng AI thật, tin nhắn được gửi tới dịch vụ xử lý AI.</p></div>
+    <div class="ai-full ai-memory-panel">
+      <h3 id="aiMemoryTitle">🧠 Trí nhớ học tập</h3>
+      <label class="ai-option"><input type="checkbox" id="aiRemember" checked/><span id="aiRememberLabel">Ghi nhớ kỹ năng và lỗi thường gặp</span></label>
+      <label class="ai-option"><input type="checkbox" id="aiCloudMemory"/><span id="aiCloudMemoryLabel">Cho phép sao lưu hồ sơ kỹ năng lên Google Drive</span></label>
+      <div id="aiMemoryStatus" class="ai-memory-status" aria-live="polite"></div>
+      <p id="aiPrivacyNote" class="ai-small-note">Chỉ lưu kỹ năng, không lưu thông tin cá nhân vào hồ sơ.</p>
+      <div class="ai-memory-actions"><button type="button" id="aiExportMemory">⬇ Xuất hồ sơ</button><button type="button" id="aiResetMemory">Xóa hồ sơ kỹ năng</button></div>
+    </div>
+    <div class="ai-full"><label for="aiEndpoint" id="aiEndpointLabel">Địa chỉ AI Worker (HTTPS)</label><input type="url" id="aiEndpoint" placeholder="https://hsk-ai-...workers.dev" autocomplete="url" spellcheck="false"/><button type="button" id="aiConnect" class="ai-minor-action">🔗 Kiểm tra kết nối AI</button></div>
+    <div class="ai-full"><div class="ai-current-status"><span id="aiStatusDot" class="ai-status-dot"></span><span id="aiModeStatus">Luyện mẫu (chưa kết nối AI trực tuyến)</span></div><p class="ai-small-note" id="aiOnlineNote">Chế độ mẫu có sẵn để tập thử. Muốn trò chuyện AI tự do cần cấu hình Cloudflare Worker.</p><button type="button" id="aiRestart" class="ai-main-action">↻ Bắt đầu chủ đề này</button><button type="button" id="aiErase" class="ai-minor-action">🗑 Xóa hội thoại chủ đề này</button></div>
+   </aside>
+   <div class="ai-chat-card">
+    <header class="ai-chat-head"><div><strong id="aiChatHeading">🐼 Gia sư giao tiếp tiếng Trung</strong><small id="aiChatLevel">HSK 3 · Chào hỏi & giới thiệu</small></div><div class="ai-chat-actions"><button type="button" id="aiSwitchDemo" title="Switch demo/live chat">📖 Mẫu</button></div></header>
+    <div class="ai-demo-notice" id="aiNotice">Đây là hội thoại mẫu có sẵn, chưa phải AI phản hồi thật.</div>
+    <div id="aiMessages" class="ai-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <div class="ai-helperbar"><button type="button" id="aiHint">💡 Gợi ý trả lời</button><button type="button" id="aiPlayLast">🔊 Nghe câu AI</button><button type="button" id="aiClearInput">⌫ Xóa nội dung nhập</button></div>
+    <div class="ai-compose"><div id="aiCaptcha" class="ai-turnstile" aria-label="AI access verification"></div><div class="ai-compose-row"><textarea id="aiInput" maxlength="380" rows="2" placeholder="Viết câu tiếng Trung hoặc Pinyin..." aria-label="Your answer in Chinese"></textarea><button type="button" class="ai-send" id="aiSend">Gửi ➤</button></div><div class="ai-compose-tools"><button type="button" id="aiMicrophone">🎙️ Nói tiếng Trung</button><small id="aiInputHelp">Enter: gửi · Shift+Enter: xuống dòng</small></div><p id="aiMessageError" class="ai-ai-warning" role="status" hidden></p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
 <section id="advancedPane" aria-label="HSK 4 to 6 Advanced Learning" hidden data-hsk-no-translate="true"><div class="adv-wrap">
   <header class="adv-hero"><div><span class="adv-kicker">熊猫进阶 · HSK 3.0 · ADVANCED CHINESE</span><h1 data-adv-en="🎋 HSK 4–6 · Advanced Chinese">🎋 HSK 4–6 · Học tiếng Trung nâng cao</h1><p data-adv-en="Vocabulary and grammar aligned to the latest syllabus, Pinyin quizzes, dictation, reading and spaced review. All earlier HSK 1–3 lessons are preserved.">Từ vựng, ngữ pháp theo đề cương mới, kiểm tra Pinyin, nghe chép câu, đọc hiểu và ôn tập giãn cách. Giữ nguyên mọi bài học HSK 1–3 trước đây.</p></div><div class="adv-level-chips"><span>HSK 4 · +1.000</span><span>HSK 5 · +1.600</span><span>HSK 6 · +1.800</span></div></header>
  <div class="adv-stats"><div><b id="advCountWords">4.400</b><small>Từ vựng HSK 4–6</small></div><div><b id="advCountGrammar">215</b><small>Mục ngữ pháp tham khảo</small></div><div><b id="advLearnedStat">0 / 4.400</b><small>Từ đã học</small></div><div><button type="button" id="advReload">↻ Tải lại đề cương</button><small id="advDataState">Chờ tải dữ liệu</small></div></div>
@@ -2516,7 +2632,7 @@ const SCOPE='https://www.googleapis.com/auth/drive.appdata';
 const DRIVE='https://www.googleapis.com/drive/v3/files';
 const UPLOAD='https://www.googleapis.com/upload/drive/v3/files';
 const FILENAME='HSK30_tien_do_hoc_tap_v1.json';
-const KEYS=['hsk30_2025_1000_learned_v1','hsk30_2025_grammar_175_v1','hsk30_sentence_builder_2026_v1','hsk30_srs_roadmap_cards_v1','hsk30_roadmap_plan_20w_v1','hsk30_dictation_progress_v1','hsk30_reading_progress_v1','hsk30_vocab_quiz_history_v1','hsk30_interface_preferences_v1','hsk30_ui_language_v1','hsk30_advanced_progress_v1'];
+const KEYS=['hsk30_2025_1000_learned_v1','hsk30_2025_grammar_175_v1','hsk30_sentence_builder_2026_v1','hsk30_srs_roadmap_cards_v1','hsk30_roadmap_plan_20w_v1','hsk30_dictation_progress_v1','hsk30_reading_progress_v1','hsk30_vocab_quiz_history_v1','hsk30_interface_preferences_v1','hsk30_ui_language_v1','hsk30_advanced_progress_v1','hsk30_ai_learning_profile_v1'];
 const MSG={
  vi:{title:'Tài khoản & Đồng bộ Google Drive',subtitle:'Lưu tiến độ HSK trên tài khoản Google, tiếp tục học trên thiết bị khác.',
     delete:'🗑 Xóa bản sao Drive',deleteConfirm:'XÓA bản sao lưu tiến độ HSK trên Google Drive? Tiến độ đang có trên thiết bị sẽ được giữ nguyên. Hành động này không thể hoàn tác.',deleted:'Đã xóa bản sao lưu Google Drive. Tiến độ trên máy được giữ nguyên.',login:'Đăng nhập Google',logout:'Ngắt kết nối',save:'↑ Lưu lên Drive',load:'↓ Khôi phục từ Drive',refresh:'↻ Kiểm tra Drive',
@@ -2581,7 +2697,7 @@ let accessToken='',tokenClient=null,remote=null,remoteStamp=null,initialized=fal
 const lang=()=>window.HSK30Language?.current==='en'?'en':'vi';
 const tr=k=>(MSG[lang()][k]||k);
 const status=(s,error=false)=>{const el=Q('hskCloudStatus');el.textContent=s;el.dataset.state=error?'error':'normal';};
-function snapshot(){const data={};for(const key of KEYS){let v=null;try{const s=localStorage.getItem(key);v=s===null?null:(key==='hsk30_ui_language_v1'?s:JSON.parse(s));}catch(_){v=null}data[key]=v;}return {format:'HSK30-learning-backup-v1',version:2,created:new Date().toISOString(),data};}
+function snapshot(){const data={};for(const key of KEYS){if(key==='hsk30_ai_learning_profile_v1'&&localStorage.getItem('hsk30_ai_cloud_optin_v1')!=='true')continue;let v=null;try{const s=localStorage.getItem(key);v=s===null?null:(key==='hsk30_ui_language_v1'?s:JSON.parse(s));}catch(_){v=null}data[key]=v;}return {format:'HSK30-learning-backup-v1',version:2,created:new Date().toISOString(),data};}
 function signature(payload){return JSON.stringify(payload.data);}
 function valid(payload){if(!payload||payload.format!=='HSK30-learning-backup-v1'||!payload.data||typeof payload.data!=='object'||Array.isArray(payload.data))return false;return KEYS.some(k=>Object.prototype.hasOwnProperty.call(payload.data,k));}
 function info(payload){const d=payload?.data||{};const n=Array.isArray(d.hsk30_2025_1000_learned_v1)?d.hsk30_2025_1000_learned_v1.length:0;return n+' '+tr('items');}
@@ -2795,6 +2911,152 @@ $('advRoadStart').value=state.plan.start||date();$('advRoadWeeks').value=String(
 const switchLang=()=>{applyAdvancedLanguage();if(P.hidden)return;quiz=null;listen=null;draw();};document.getElementById('hskLanguage')?.addEventListener('change',switchLang);
 window.HSK30Advanced={open:()=>B.click(),reload:loadCatalog};
 applyAdvancedLanguage();stats();showTab('v');loadCatalog(false);
+})();
+
+</script><script id="hsk-ai-chat-script">
+/* HSK Chinese conversation tutor — progressive, privacy-preserving skill memory.
+   The website never includes a server API key. Cloudflare Worker handles the AI calls. */
+(()=>{'use strict';
+const $=id=>document.getElementById(id), P=$('aiChatPane'), tab=$('tabAiChat');if(!P||!tab)return;
+const PROFILE='hsk30_ai_learning_profile_v1',LOG='hsk30_ai_chat_sessions_v1',OPT='hsk30_ai_settings_v1',CLOUD='hsk30_ai_cloud_optin_v1';
+const ERRORS=['word_order','measure_word','grammar','word_choice','characters','tones','fluency'];
+const SKILLS=['vocabulary','grammar','fluency','confidence','comprehension'];
+const LABEL={word_order:['Trật tự từ','Word order'],measure_word:['Lượng từ','Measure words'],grammar:['Ngữ pháp','Grammar'],word_choice:['Chọn từ','Word choice'],characters:['Hán tự','Characters'],tones:['Thanh điệu','Tones'],fluency:['Diễn đạt','Fluency'],vocabulary:['Từ vựng','Vocabulary'],confidence:['Phản xạ','Confidence'],comprehension:['Hiểu câu hỏi','Comprehension']};
+const TOPICS={greeting:['Chào hỏi','Greetings'],family:['Gia đình','Family'],school:['Học tập','School'],food:['Nhà hàng','Food & dining'],shopping:['Mua sắm','Shopping'],travel:['Du lịch','Travel'],hobby:['Sở thích','Hobbies'],daily:['Hằng ngày','Daily life'],health:['Thói quen lành mạnh','Healthy habits'],work:['Công việc','Work'],culture:['Văn hóa','Culture'],opinion:['Thảo luận','Discussion']};
+const SEEDS={
+ greeting:[['你好！今天过得怎么样？','Nǐ hǎo! Jīntiān guò de zěnmeyàng?','Xin chào! Hôm nay của bạn thế nào?'],['你平时喜欢用中文做什么？','Nǐ píngshí xǐhuan yòng Zhōngwén zuò shénme?','Bạn thường thích dùng tiếng Trung làm gì?'],['你想练习介绍自己，还是问候别人？','Nǐ xiǎng liànxí jièshào zìjǐ, háishi wènhòu biérén?','Bạn muốn luyện giới thiệu bản thân hay chào hỏi?']],
+ family:[['你想介绍一下你的家人吗？','Nǐ xiǎng jièshào yíxià nǐ de jiārén ma?','Bạn muốn giới thiệu gia đình mình không?'],['周末你喜欢和家人做什么？','Zhōumò nǐ xǐhuan hé jiārén zuò shénme?','Cuối tuần bạn thích làm gì với gia đình?']],
+ school:[['你今天学习了什么？','Nǐ jīntiān xuéxí le shénme?','Hôm nay bạn đã học gì?'],['你觉得什么科目最有意思？','Nǐ juéde shénme kēmù zuì yǒu yìsi?','Bạn thấy môn nào thú vị nhất?']],
+ food:[['欢迎光临！请问你想吃什么？','Huānyíng guānglín! Qǐngwèn nǐ xiǎng chī shénme?','Hoan nghênh! Bạn muốn ăn gì?'],['你想喝茶还是喝水？','Nǐ xiǎng hē chá háishi hē shuǐ?','Bạn muốn uống trà hay nước?']],
+ shopping:[['你好！你想买什么？','Nǐ hǎo! Nǐ xiǎng mǎi shénme?','Xin chào! Bạn muốn mua gì?'],['你觉得这个颜色怎么样？','Nǐ juéde zhège yánsè zěnmeyàng?','Bạn thấy màu này thế nào?']],
+ travel:[['你最想去中国的哪个城市？','Nǐ zuì xiǎng qù Zhōngguó de nǎge chéngshì?','Bạn muốn đến thành phố nào ở Trung Quốc nhất?'],['你喜欢坐火车还是坐飞机？','Nǐ xǐhuan zuò huǒchē háishi zuò fēijī?','Bạn thích đi tàu hay máy bay?']],
+ hobby:[['你有什么爱好？','Nǐ yǒu shénme àihào?','Bạn có sở thích gì?'],['你周末一般做什么？','Nǐ zhōumò yìbān zuò shénme?','Cuối tuần bạn thường làm gì?']],
+ daily:[['你一般几点起床？','Nǐ yìbān jǐ diǎn qǐchuáng?','Bạn thường dậy lúc mấy giờ?'],['今天你打算做什么？','Jīntiān nǐ dǎsuàn zuò shénme?','Hôm nay bạn dự định làm gì?']],
+ health:[['你平时怎么保持健康？','Nǐ píngshí zěnme bǎochí jiànkāng?','Bạn thường làm gì để giữ sức khỏe?'],['你更喜欢散步还是骑自行车？','Nǐ gèng xǐhuan sànbù háishi qí zìxíngchē?','Bạn thích đi bộ hay đi xe đạp hơn?']],
+ work:[['你想做什么工作？','Nǐ xiǎng zuò shénme gōngzuò?','Bạn muốn làm công việc gì?'],['你喜欢和别人一起工作吗？','Nǐ xǐhuan hé biérén yìqǐ gōngzuò ma?','Bạn thích làm việc cùng người khác không?']],
+ culture:[['你知道哪些中国节日？','Nǐ zhīdào nǎxiē Zhōngguó jiérì?','Bạn biết những lễ hội nào của Trung Quốc?'],['你想了解中国的什么文化？','Nǐ xiǎng liǎojiě Zhōngguó de shénme wénhuà?','Bạn muốn tìm hiểu văn hóa nào của Trung Quốc?']],
+ opinion:[['你觉得学外语有什么好处？','Nǐ juéde xué wàiyǔ yǒu shénme hǎochù?','Bạn nghĩ học ngoại ngữ có lợi ích gì?'],['你同意每天练习一点儿更有效吗？','Nǐ tóngyì měitiān liànxí yìdiǎnr gèng yǒuxiào ma?','Bạn có đồng ý luyện một chút mỗi ngày hiệu quả hơn không?']]
+};
+const en=()=>document.getElementById('hskLanguage')?.value==='en'||window.HSK30Language?.current==='en';
+const ui=(vi,english)=>en()?english:vi;
+const read=(key,fallback)=>{try{const x=JSON.parse(localStorage.getItem(key)||'null');return x&&typeof x==='object'?x:fallback}catch{return fallback}};
+const store=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}};
+const blank=()=>({version:1,turns:0,correct:0,needs:0,topics:{},errors:{},strengths:{},words:{},recentFocus:[],updated:null});
+let profile=read(PROFILE,blank()), sessions=read(LOG,{}), settings=Object.assign({level:'3',topic:'greeting',style:'guided',pin:true,translation:true,speak:false,memory:true,endpoint:'',mode:'demo'},read(OPT,{}));
+const isBrowser=()=>typeof location!=='undefined';
+let onlineConfig=null,workerReady=false,widgetId=null,turnstileStatus='',sending=false, demoCounter=0;
+const allPanes=['vocabPane','grammarPane','sentencePane','listeningPane','readingPane','srsPane','roadmapPane','advancedPane','themePane'];
+function safeText(s,max=250){return String(s??'').replace(/[\u0000-\u001f]/g,' ').trim().slice(0,max)}
+function safeChinese(s){return safeText(s,24).replace(/[^\u3400-\u9fff\p{Script=Latin}\s]/gu,'').trim()}
+const codeLabel=(code)=>LABEL[code]?.[en()?1:0]||code;
+const topicName=(topic)=>TOPICS[topic]?.[en()?1:0]||topic;
+function cleanProfile(){
+ if(!profile||typeof profile!=='object'||Array.isArray(profile))profile=blank();
+ for(const f of ['turns','correct','needs'])profile[f]=Math.min(20000,Math.max(0,Number(profile[f])||0));
+ for(const f of ['topics','errors','strengths','words'])if(!profile[f]||typeof profile[f]!=='object'||Array.isArray(profile[f]))profile[f]={};
+ for(const f of ['errors','strengths'])for(const code of Object.keys(profile[f]))if(!(f==='errors'?ERRORS:SKILLS).includes(code)){delete profile[f][code]}
+}
+cleanProfile();
+function sessionKey(){return settings.level+':'+settings.topic}
+function current(){const k=sessionKey();if(!Array.isArray(sessions[k]))sessions[k]=[];return sessions[k]}
+function persist(){store(PROFILE,profile);store(LOG,sessions);store(OPT,settings);paintMemory()}
+function pushMessage(m){const list=current();list.push(m);if(list.length>55)list.splice(0,list.length-55);persist()}
+function changeTab(){allPanes.forEach(id=>{const el=$(id);if(el)el.hidden=true});document.querySelectorAll('.app-tab').forEach(b=>{b.classList.toggle('selected',b===tab);b.setAttribute('aria-selected',String(b===tab))});P.hidden=false;updateUI();window.scrollTo({top:0,behavior:'instant'});}
+tab.addEventListener('click',changeTab);
+document.querySelectorAll('.app-tab:not(#tabAiChat)').forEach(b=>b.addEventListener('click',()=>{P.hidden=true;tab.classList.remove('selected');tab.setAttribute('aria-selected','false')},true));
+function setNotice(s,error=false){$('aiMessageError').hidden=!s;$('aiMessageError').textContent=s||'';$('aiMessageError').style.color=error?'#ab433f':''}
+function bubbles(){let box=$('aiMessages'),list=current();box.replaceChildren();if(!list.length){const el=document.createElement('div');el.className='ai-empty';el.innerHTML='<b>🐼 中文会话 · Chinese Conversation</b>';el.append(document.createTextNode(ui('Chọn chủ đề rồi bắt đầu hội thoại. AI sẽ nhớ các kỹ năng bạn cần ôn.','Choose a topic and start a conversation. Your skills and weak points can be remembered.')));box.append(el);return;}
+ list.forEach(m=>{const wrap=document.createElement('div');wrap.className='ai-message '+(m.role==='user'?'user':'assistant');const bubble=document.createElement('div');bubble.className='ai-bubble';let zh=document.createElement('div');zh.className='ai-zh';zh.textContent=m.zh||'';bubble.append(zh);
+ if(m.role==='ai'){
+   if(settings.pin&&m.pinyin){let el=document.createElement('div');el.className='ai-pin';el.textContent=m.pinyin;bubble.append(el)}
+   if(settings.translation&&m.translation){let el=document.createElement('div');el.className='ai-translation';el.textContent=m.translation;bubble.append(el)}
+   if(m.feedback){let el=document.createElement('div');el.className='ai-feedback';el.textContent='✍ '+m.feedback;bubble.append(el)}
+   if(m.correction){let el=document.createElement('div');el.className='ai-feedback';el.textContent='✓ '+m.correction;bubble.append(el)}
+ }wrap.append(bubble);box.append(wrap)});box.scrollTop=box.scrollHeight;
+}
+function scene(idx=0){const arr=SEEDS[settings.topic]||SEEDS.greeting;const errors=Object.entries(profile.errors||{}).sort((a,b)=>(b[1]?.count||0)-(a[1]?.count||0));let offset=idx%arr.length;if(settings.memory&&errors[0]&&idx>0)offset=(idx+1)%arr.length;return arr[offset];}
+function currentTopic(){const k=settings.topic;return profile.topics[k]||(profile.topics[k]={turns:0,success:0})}
+function feedMemory(answer,result){if(!settings.memory)return;cleanProfile();profile.turns++;let successful=result.rating==='good',t=currentTopic();t.turns++;if(successful){profile.correct++;t.success++}else profile.needs++;
+ for(const c of (Array.isArray(result.error_codes)?result.error_codes:[]).slice(0,3))if(ERRORS.includes(c)){let x=profile.errors[c]||{count:0,last:''};x.count=Math.min(500,x.count+1);x.last=new Date().toISOString().slice(0,10);profile.errors[c]=x;}
+ for(const c of (Array.isArray(result.strength_codes)?result.strength_codes:[]).slice(0,3))if(SKILLS.includes(c))profile.strengths[c]=Math.min(500,(profile.strengths[c]||0)+1);
+ const word=safeChinese(result.focus_word||'');if(word&&word.length<=18&&/[\u3400-\u9fff]/u.test(word)){profile.words[word]=Math.min(100,(profile.words[word]||0)+1);if(Object.keys(profile.words).length>40){const remove=Object.keys(profile.words).sort((a,b)=>profile.words[a]-profile.words[b])[0];delete profile.words[remove]}}
+ profile.updated=new Date().toISOString();persist();
+}
+function paintMemory(){const el=$('aiMemoryStatus');if(!el)return;cleanProfile();const p=profile, top=Object.entries(p.errors).sort((a,b)=>b[1].count-a[1].count).slice(0,3),skills=Object.entries(p.strengths).sort((a,b)=>b[1]-a[1]).slice(0,2);el.replaceChildren();
+ const line=document.createElement('div');line.textContent=ui(`Đã luyện: ${p.turns} lượt · Phản hồi tốt: ${p.correct}`,`Practiced: ${p.turns} turns · Good responses: ${p.correct}`);el.append(line);
+ let a=document.createElement('p');a.textContent=top.length?ui('Cần ôn: ','Review: ')+top.map(([c,r])=>codeLabel(c)+' ('+r.count+')').join(' · '):ui('Chưa có lỗi lặp lại được ghi nhận.','No recurring errors recorded.');el.append(a);
+ let b=document.createElement('p');b.textContent=skills.length?ui('Điểm mạnh: ','Strengths: ')+skills.map(([c])=>codeLabel(c)).join(' · '):ui('Thêm vài lượt luyện để thấy điểm mạnh.','Practice a few turns to see strengths.');el.append(b);
+ const w=Object.entries(p.words).sort((a,b)=>b[1]-a[1]).slice(0,5);if(w.length){const n=document.createElement('p');n.textContent=ui('Từ cần luyện: ','Words to revisit: ')+w.map(([v])=>v).join(' · ');el.append(n)}
+ $('aiRemember').checked=!!settings.memory;try{$('aiCloudMemory').checked=localStorage.getItem(CLOUD)==='true'}catch(_){$('aiCloudMemory').checked=false}
+}
+function updateUI(){
+ $('aiLevel').value=settings.level;$('aiTopic').value=settings.topic;$('aiShowPin').checked=!!settings.pin;$('aiShowTranslation').checked=!!settings.translation;$('aiSpeakOnReply').checked=!!settings.speak;$('aiEndpoint').value=settings.endpoint||'';
+ $('aiGuided').classList.toggle('active',settings.style==='guided');$('aiFree').classList.toggle('active',settings.style==='free');
+ $('aiChatLevel').textContent='HSK '+settings.level+' · '+topicName(settings.topic);
+ $('aiTitle').textContent=ui('Luyện giao tiếp với AI','Practice Chinese with AI');
+ $('aiSubtitle').textContent=ui('Hội thoại thích nghi · Sửa lỗi theo tiến độ · HSK 1–6','Adaptive conversation · Personal feedback · HSK 1–6');
+ $('aiLblLevel').textContent=ui('Trình độ của bạn','Your level');$('aiLblTopic').textContent=ui('Chủ đề giao tiếp','Conversation topic');
+ $('aiLblMode').textContent=ui('Hình thức luyện tập','Practice mode');$('aiLblPin').textContent=ui('Hiện Pinyin','Show Pinyin');$('aiLblTranslation').textContent=ui('Hiện nghĩa','Show translation');
+ $('aiLblSpeech').textContent=ui('Tự phát âm câu AI','Speak AI replies');$('aiGuided').textContent=ui('🎯 Có hướng dẫn','🎯 Guided');$('aiFree').textContent=ui('💬 Tự do','💬 Free chat');
+ $('aiRestart').textContent=ui('↻ Bắt đầu chủ đề này','↻ Start this topic');$('aiErase').textContent=ui('🗑 Xóa hội thoại chủ đề này','🗑 Clear this topic');
+ $('aiSend').textContent=ui('Gửi ➤','Send ➤');$('aiInput').placeholder=ui('Nhập câu tiếng Trung hoặc Pinyin…','Write Chinese or Pinyin…');
+ $('aiHint').textContent=ui('💡 Gợi ý trả lời','💡 Answer hint');$('aiPlayLast').textContent=ui('🔊 Nghe câu AI','🔊 Hear AI');
+ $('aiClearInput').textContent=ui('⌫ Xóa nội dung nhập','⌫ Clear input');$('aiMicrophone').textContent=ui('🎙️ Nói tiếng Trung','🎙️ Speak Chinese');
+ $('aiMemoryTitle').textContent=ui('🧠 Trí nhớ học tập','🧠 Learning memory');$('aiRememberLabel').textContent=ui('Ghi nhớ kỹ năng và lỗi thường gặp','Remember skills and recurring errors');
+ $('aiCloudMemoryLabel').textContent=ui('Cho phép sao lưu hồ sơ kỹ năng lên Google Drive','Allow skill profile to sync to Google Drive');
+ $('aiResetMemory').textContent=ui('Xóa hồ sơ kỹ năng','Reset skill profile');
+ $('aiPrivacyNote').textContent=ui('Chỉ ghi nhớ kỹ năng, không lưu thông tin riêng tư vào hồ sơ. Nhật ký chat nằm trên thiết bị này. Bạn có thể xóa bất kỳ lúc nào.','Only language skills are remembered, not personal data. Full chat stays on this device. You can erase it any time.');
+ $('aiEndpointLabel').textContent=ui('Địa chỉ AI Worker (HTTPS)','AI Worker URL (HTTPS)');
+ $('aiConnect').textContent=ui('🔗 Kiểm tra kết nối AI','🔗 Test AI connection');
+ $('aiOnlineNote').textContent=ui('Chưa triển khai Worker vẫn luyện mẫu được. AI trực tuyến cần cấu hình backend, Turnstile và API Key bảo mật.','Demo works before deployment. Live AI requires a secured backend, Turnstile and API key.');
+ $('aiInputHelp').textContent=ui('Enter: gửi · Shift+Enter: xuống dòng','Enter: send · Shift+Enter: new line');
+ $('aiLocalPrivacy').textContent=ui('Khi trò chuyện trực tuyến, nội dung bạn nhập và hồ sơ kỹ năng tóm tắt được gửi đến dịch vụ AI để trả lời.','In live chat, the text you type and summarized skill profile are sent to the AI service for a reply.');
+ $('aiChatHeading').textContent=ui('🐼 Gia sư giao tiếp tiếng Trung','🐼 Chinese speaking tutor');
+ const status=workerReady&&settings.mode==='live';$('aiModeStatus').textContent=status?ui('AI trực tuyến · đang kết nối','Live AI · connected'):ui('Luyện mẫu thích nghi (ngoại tuyến)','Adaptive demo (offline)');
+ $('aiNotice').textContent=status?ui('AI tạo câu trả lời mới dựa trên trình độ, hội thoại gần đây và hồ sơ kỹ năng.','AI creates new replies from your level, recent conversation and skill profile.'):ui('Chế độ luyện mẫu: phản hồi theo kịch bản biến đổi, không phải AI trực tuyến.','Demo mode: adaptive scripted practice, not live AI.');
+ $('aiSwitchDemo').textContent=status?ui('🤖 AI thật','🤖 Live AI'):ui('📖 Luyện mẫu','📖 Demo');
+ $('aiCloudMemory').disabled=!settings.memory;
+ if(!workerReady)settings.mode='demo';
+ bubbles();paintMemory();
+}
+function say(text){if(!text||!window.speechSynthesis)return;const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=.87;window.speechSynthesis.cancel();window.speechSynthesis.speak(u)}
+function startTopic(){let arr=current();if(arr.length&&!window.confirm(ui('Bắt đầu lại chủ đề và xóa lịch sử của chủ đề này? Hồ sơ kỹ năng vẫn được giữ.','Restart topic and clear its chat? Skill profile will remain.')))return;sessions[sessionKey()]=[];demoCounter=0;const [zh,pinyin,translation]=scene(0);pushMessage({role:'ai',zh,pinyin,translation});updateUI()}
+function startIfEmpty(){if(!current().length){const [zh,pinyin,translation]=scene(0);pushMessage({role:'ai',zh,pinyin,translation})}}
+function serverProfile(){if(!settings.memory)return null;const errs=Object.entries(profile.errors).sort((a,b)=>b[1].count-a[1].count).slice(0,5).map(([code,v])=>({code,count:v.count}));const strengths=Object.entries(profile.strengths).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([code,n])=>({code,count:n}));const topics=Object.entries(profile.topics).map(([id,v])=>({id,turns:v.turns||0})).slice(0,12);const words=Object.entries(profile.words).sort((a,b)=>b[1]-a[1]).slice(0,12).map(([word])=>word);return {turns:profile.turns,errors:errs,strengths,topics,words}}
+function saveAnswer(zh,answer,live){pushMessage({role:'user',zh});if(live){pushMessage({role:'ai',zh:answer.zh,pinyin:answer.pinyin,translation:answer.translation,feedback:answer.feedback,correction:answer.correction});feedMemory(zh,answer)}else{pushMessage({role:'ai',zh:answer.zh,pinyin:answer.pinyin,translation:answer.translation,feedback:answer.feedback});feedMemory(zh,answer)}bubbles();if(settings.speak)say(answer.zh);}
+function offlineReply(text){const prior=current().filter(m=>m.role==='user').length;const msg=scene(prior+1);const isChinese=/[\u3400-\u9fff]/u.test(text);const tooShort=text.trim().length<3;const rating=(tooShort||!isChinese)?'needs_practice':text.trim().length>=10?'good':'progressing';const error_codes=!isChinese?['characters']:tooShort?['fluency']:[];const strength_codes=rating==='good'?['fluency']:[];let intro=ui('Bài mẫu tiếp tục với câu hỏi khác. Khi kết nối AI thật, bạn sẽ nhận nhận xét ngữ pháp cụ thể.','Demo moves to another question. Connect live AI for real grammar feedback.');return {zh:msg[0],pinyin:msg[1],translation:msg[2],feedback:intro,correction:'',rating,error_codes,strength_codes,focus_word:''}}
+function endpoint(){return (settings.endpoint||'').trim().replace(/\/+$/,'')}
+async function connect(){const addr=endpoint();workerReady=false;onlineConfig=null;settings.mode='demo';if(!/^https:\/\/[A-Za-z0-9.-]+(?::\d+)?(?:\/[A-Za-z0-9._~/-]*)?$/i.test(addr)){setNotice(ui('Địa chỉ Worker phải là HTTPS hợp lệ.','Enter a valid HTTPS Worker URL.'),true);updateUI();return false;}setNotice(ui('Đang kiểm tra kết nối…','Checking connection…'));
+ try{const r=await fetch(addr+'/config',{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);const data=await r.json();if(!data.ready||!data.turnstileSiteKey)throw Error('Worker is not configured');onlineConfig=data;workerReady=true;settings.mode='live';settings.endpoint=addr;store(OPT,settings);await initTurnstile();setNotice(ui('Kết nối thành công. Kiểm tra Turnstile rồi bắt đầu trò chuyện.','Connected. Complete Turnstile to chat.'));updateUI();return true;}catch(e){setNotice(ui('Không kết nối được AI: ','Could not connect AI: ')+safeText(e.message,120),true);updateUI();return false;}
+}
+async function initTurnstile(){const div=$('aiCaptcha');div.replaceChildren();widgetId=null;if(!window.turnstile){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';s.onload=resolve;s.onerror=reject;document.head.append(s)})}widgetId=window.turnstile.render(div,{sitekey:onlineConfig.turnstileSiteKey,theme:'auto'});}
+function getToken(){try{return window.turnstile?.getResponse(widgetId)||''}catch{return ''}}
+function resetToken(){try{window.turnstile?.reset(widgetId)}catch{}}
+async function aiCall(message){const token=getToken();if(!token)throw Error(ui('Vui lòng hoàn tất bước xác nhận Turnstile.','Complete the Turnstile verification.'));const history=current().slice(-16).filter(x=>x.role==='user'||x.role==='ai').map(x=>({role:x.role,content:(x.zh||'').slice(0,400)}));const req={message,level:Math.max(1,Math.min(6,parseInt(settings.level)||3)),topic:settings.topic,style:settings.style,language:en()?'en':'vi',history,profile:serverProfile(),turnstileToken:token};
+ const r=await fetch(endpoint()+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(req),signal:AbortSignal.timeout(35000)});resetToken();let data;try{data=await r.json()}catch{throw Error('Invalid server response')}if(!r.ok)throw Error(safeText(data?.error||('HTTP '+r.status),180));if(!data||typeof data.zh!=='string')throw Error('Malformed AI reply');return {zh:safeText(data.zh,350),pinyin:safeText(data.pinyin,500),translation:safeText(data.translation,500),feedback:safeText(data.feedback,700),correction:safeText(data.correction,350),rating:['good','progressing','needs_practice'].includes(data.rating)?data.rating:'progressing',error_codes:data.error_codes||[],strength_codes:data.strength_codes||[],focus_word:safeText(data.focus_word,30)};
+}
+async function send(){if(sending)return;const raw=$('aiInput').value.trim();if(!raw)return;const text=safeText(raw,380);if(!text)return;const live=workerReady&&settings.mode==='live';sending=true;$('aiSend').disabled=true;setNotice(live?ui('AI đang suy nghĩ…','AI is replying…'):'');$('aiInput').disabled=true;
+ try{startIfEmpty();const out=live?await aiCall(text):offlineReply(text);saveAnswer(text,out,live);$('aiInput').value='';setNotice('');}catch(e){setNotice(ui('Chưa gửi được: ','Could not send: ')+safeText(e.message,160),true);}finally{sending=false;$('aiSend').disabled=false;$('aiInput').disabled=false;$('aiInput').focus();}
+}
+$('aiSend').addEventListener('click',send);$('aiInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();send()}});
+$('aiLevel').addEventListener('change',e=>{settings.level=e.target.value;persist();startIfEmpty();updateUI()});$('aiTopic').addEventListener('change',e=>{settings.topic=e.target.value;persist();startIfEmpty();updateUI()});
+for(const id of ['aiShowPin','aiShowTranslation','aiSpeakOnReply'])$(id).addEventListener('change',e=>{settings[id==='aiShowPin'?'pin':id==='aiShowTranslation'?'translation':'speak']=e.target.checked;persist();updateUI()});
+for(const b of P.querySelectorAll('[data-ai-style]'))b.addEventListener('click',()=>{settings.style=b.dataset.aiStyle;persist();updateUI()});
+$('aiRestart').addEventListener('click',startTopic);$('aiErase').addEventListener('click',()=>{if(!confirm(ui('Xóa đoạn hội thoại đang xem? Hồ sơ kỹ năng vẫn được giữ.','Erase this conversation? Skill memory remains.')))return;sessions[sessionKey()]=[];persist();updateUI()});
+$('aiClearInput').addEventListener('click',()=>{$('aiInput').value='';$('aiInput').focus()});
+$('aiHint').addEventListener('click',()=>{const examples={greeting:'我很好，谢谢。你呢？',family:'我有一个哥哥。',school:'我今天学习中文。',food:'我想吃面条。',shopping:'这个多少钱？',travel:'我想去北京。',hobby:'我喜欢看书。',daily:'我每天七点起床。',health:'我喜欢每天散步。',work:'我想当老师。',culture:'我知道春节。',opinion:'我觉得学习中文很有意思。'};$('aiInput').value=examples[settings.topic]||examples.greeting;$('aiInput').focus()});
+$('aiPlayLast').addEventListener('click',()=>{const m=[...current()].reverse().find(m=>m.role==='ai');if(m)say(m.zh)});
+$('aiMicrophone').addEventListener('click',()=>{const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SpeechRecognition){setNotice(ui('Trình duyệt này chưa hỗ trợ nhận giọng nói. Bạn có thể gõ câu tiếng Trung.','Speech recognition is unavailable here. Please type Chinese instead.'),true);return;}try{const rec=new SpeechRecognition();rec.lang='zh-CN';rec.interimResults=false;rec.onresult=e=>{$('aiInput').value=Array.from(e.results).map(x=>x[0].transcript).join(' ')};rec.onerror=e=>setNotice(safeText(e.error,80),true);rec.start();}catch(e){setNotice(safeText(e.message,100),true)}});
+$('aiConnect').addEventListener('click',()=>{settings.endpoint=$('aiEndpoint').value.trim();store(OPT,settings);connect()});
+$('aiEndpoint').addEventListener('change',()=>{settings.endpoint=$('aiEndpoint').value.trim();store(OPT,settings)});
+$('aiSwitchDemo').addEventListener('click',()=>{if(workerReady){settings.mode=settings.mode==='live'?'demo':'live';persist();updateUI()}else if(settings.endpoint)connect();else setNotice(ui('Chưa có địa chỉ Worker. Bạn vẫn có thể luyện mẫu.','Worker URL is missing; demo remains available.'))});
+$('aiRemember').addEventListener('change',e=>{settings.memory=e.target.checked;store(OPT,settings);updateUI()});
+$('aiCloudMemory').addEventListener('change',e=>{try{localStorage.setItem(CLOUD,String(e.target.checked))}catch(_){}paintMemory()});
+$('aiResetMemory').addEventListener('click',()=>{if(!confirm(ui('Xóa tất cả thống kê điểm mạnh/lỗi? Hội thoại vẫn được giữ.','Erase all skill statistics? Conversations will remain.')))return;profile=blank();persist();updateUI()});
+$('aiExportMemory').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({type:'HSK30-ai-skill-profile-v1',date:new Date().toISOString(),profile},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='HSK30_AI_ky_nang.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+window.addEventListener('hsk-language-changed',()=>updateUI());document.getElementById('hskLanguage')?.addEventListener('change',()=>setTimeout(updateUI,80));
+updateUI();startIfEmpty();updateUI();if(settings.endpoint&&location.protocol==='https:')connect();
+window.HSK30AIChat={open:()=>tab.click(),getProfile:()=>JSON.parse(JSON.stringify(profile)),getMode:()=>settings.mode};
 })();
 
 </script></body></html>
