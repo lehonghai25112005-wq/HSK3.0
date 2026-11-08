@@ -1091,13 +1091,88 @@ html[data-hsk-theme='night'] #aiChatPane .ai-hero,html[data-hsk-theme='night'] #
 #aiChatPane .ai-message.ai-assistant{align-items:flex-start}
 @media(max-width:430px){#aiChatPane .ai-grid{grid-template-columns:minmax(0,1fr)}#aiChatPane .ai-shell{width:100%}#aiChatPane .ai-chat-card{min-width:0}}
 
+</style><style id="hsk-music-css">
+/* Independent music companion tab: intentionally excluded from roadmap, SRS, sync */
+#musicPane[hidden]{display:none!important}
+#musicPane{background:transparent;color:var(--cn-ink,#274637);min-height:80vh}
+#musicPane *{box-sizing:border-box}
+#musicPane .mus-wrap{max-width:1600px;margin:0 auto;padding:22px clamp(13px,2vw,32px) 72px}
+#musicPane .mus-hero{display:flex;gap:22px;align-items:center;justify-content:space-between;overflow:hidden;position:relative;padding:30px 34px;background:linear-gradient(120deg,#e9f3df,#fffaf0 65%,#f2e7d9);border:1px solid #d9e5d3;border-radius:22px;box-shadow:0 6px 24px rgba(52,76,51,.06)}
+#musicPane .mus-hero-content{max-width:780px;position:relative;z-index:1}
+#musicPane .mus-kicker{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.12em;color:#4c7055}
+#musicPane .mus-hero h1{font-size:clamp(24px,3vw,40px);line-height:1.2;margin:10px 0 12px;color:#254332}
+#musicPane .mus-hero p{font-size:14px;line-height:1.8;color:#4d6254;margin:0 0 16px}
+#musicPane .mus-hero-pills{display:flex;gap:8px;flex-wrap:wrap}
+#musicPane .mus-hero-pills>span{background:#ffffffb8;border:1px solid #dfe8d9;padding:7px 12px;border-radius:999px;color:#3e5d48;font-size:12px}
+#musicPane .mus-hero-art{position:relative;flex:0 0 180px;min-height:130px;text-align:center}
+#musicPane .mus-art-panda{font-size:100px;filter:drop-shadow(0 8px 5px rgba(26,67,41,.1))}
+#musicPane .mus-art-note{position:absolute;color:#a96b3c;font-size:30px;font-weight:900}#musicPane .mus-note-a{top:-8px;left:0}#musicPane .mus-note-b{top:12px;right:8px}#musicPane .mus-note-c{bottom:0;left:22px}
+#musicPane .mus-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(325px,.95fr);gap:18px;margin-top:19px;align-items:start}
+#musicPane .mus-primary,#musicPane .mus-side{display:grid;gap:18px;min-width:0}
+#musicPane .mus-panel{background:var(--hs-paper,#fffcf6);border:1px solid var(--hs-line,#e3e4d9);box-shadow:0 4px 18px rgba(38,61,39,.045);border-radius:18px;padding:22px;min-width:0}
+#musicPane .mus-overline{display:block;font-weight:800;font-size:10px;letter-spacing:.14em;color:#64806a;margin-bottom:3px}
+#musicPane .mus-panel h2{font-size:clamp(17px,1.8vw,22px);line-height:1.35;margin:0;color:var(--cn-deep,#284e3a)}
+#musicPane .mus-section-line{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:15px}
+#musicPane .mus-tiny-tag{background:#edf4e8;border:1px solid #dae7d5;border-radius:12px;color:#527457;white-space:nowrap;padding:5px 8px;font-size:11px}
+#musicPane .mus-add-form{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+#musicPane .mus-add-form label,#musicPane .mus-custom-link{display:grid;gap:5px;color:var(--cn-ink,#365041);font-weight:650;font-size:12px}
+#musicPane .mus-wide{grid-column:1/-1}
+#musicPane input,#musicPane select{width:100%;min-width:0;min-height:40px;padding:8px 11px;font-size:13px;color:#253a2d;background:#fff;border:1px solid #d5ddd1;border-radius:11px}
+#musicPane input:focus,#musicPane select:focus{outline:2px solid #7fab8c;outline-offset:1px}
+#musicPane .mus-primary-button{background:#386f4a;border:1px solid #386f4a;color:white;border-radius:10px;font-weight:760;padding:11px 14px;font-size:13px;cursor:pointer}
+#musicPane .mus-primary-button:hover{background:#265439}
+#musicPane .mus-footnote{color:#778075;font-size:12px;line-height:1.6;margin:11px 0 0}
+#musicPane .mus-notice{font-size:12px;margin:5px 0 0;color:#426948;min-height:1px}
+#musicPane .mus-drive-tools{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:18px;padding:13px;background:rgba(227,241,228,.72);border:1px solid #d3e4d4;border-radius:13px}
+#musicPane .mus-drive-tools strong{font-size:13px;color:#345f43}
+#musicPane .mus-drive-tools p{margin:4px 0 0}
+#musicPane .mus-drive-tools button{flex:none;cursor:pointer}
+@media(max-width:540px){#musicPane .mus-drive-tools{flex-direction:column;align-items:stretch}#musicPane .mus-drive-tools button{width:100%}}
+#musicPane .mus-filter-row{display:flex;gap:10px;margin-bottom:10px}#musicPane .mus-filter-row label{flex:0 0 185px}#musicPane .mus-filter-row .mus-search{flex:1}
+#musicPane .mus-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#musicPane .mus-song-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+#musicPane .mus-song{display:grid;gap:7px;padding:13px;background:#fff;border:1px solid #e4e8df;border-radius:14px;transition:border-color .15s,transform .15s}
+#musicPane .mus-song.is-active{border-color:#4b8860;background:#f5faf2;box-shadow:0 0 0 2px #bdd8b9 inset}
+#musicPane .mus-song:hover{border-color:#bed3bf;transform:translateY(-1px)}
+#musicPane .mus-song-top{display:flex;justify-content:space-between;gap:8px;align-items:center}#musicPane .mus-level{font-size:10px;font-weight:800;color:#6c785d;background:#f0f4e9;border-radius:8px;padding:3px 8px}
+#musicPane .mus-fav{font-size:17px;line-height:1;background:transparent;border:0;cursor:pointer;color:#9b9e95;padding:3px 7px}#musicPane .mus-fav.is-fav{color:#d99c38}
+#musicPane .mus-song-title{font-size:16px;font-weight:800;color:#284437;overflow-wrap:anywhere;line-height:1.3}#musicPane .mus-song-artist{font-size:12px;color:#778277;overflow-wrap:anywhere}
+#musicPane .mus-song-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}#musicPane .mus-song-actions button{background:#edf5e9;border:1px solid #d8e4d5;color:#376949;border-radius:9px;padding:7px 9px;font-weight:750;font-size:11px;cursor:pointer}#musicPane .mus-song-actions button:hover{background:#dcead8}
+#musicPane .mus-song-actions .mus-remove{color:#99564c;background:#fff6f2;border-color:#f0d9d2}
+#musicPane .mus-empty{text-align:center;background:#f4f6ef;color:#536657;padding:28px;border-radius:10px;margin-top:18px}
+#musicPane .mus-meta{margin:7px 0 15px;color:#69776e;font-size:12px}
+#musicPane .mus-video-box{aspect-ratio:16/9;background:linear-gradient(125deg,#e2eadf,#eef4ea);border-radius:14px;overflow:hidden;border:1px solid #d8e5d6}
+#musicPane .mus-video-placeholder{height:100%;display:grid;align-content:center;justify-items:center;gap:9px;font-size:44px;color:#648167}
+#musicPane .mus-video-placeholder small{font-size:12px;max-width:250px;text-align:center;font-weight:500}
+#musicPane .mus-video-box iframe{display:block;width:100%;height:100%;border:0}
+#musicPane .mus-player-actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+#musicPane .mus-secondary-button{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 13px;color:#3a684d;text-decoration:none;background:#ecf4e9;border:1px solid #d3e3d2;border-radius:9px;font-size:12px;font-weight:750}
+#musicPane .mus-custom-link-row{display:flex;gap:6px}#musicPane .mus-custom-link-row input{flex:1}#musicPane .mus-custom-link-row button{flex:none}
+#musicPane .mus-vocab-list{display:grid;gap:6px;margin:15px 0}
+#musicPane .mus-word{display:flex;gap:14px;align-items:baseline;justify-content:space-between;border-bottom:1px dashed #dbe2d8;padding:8px 3px}
+#musicPane .mus-zh{font-size:19px;font-weight:750;color:#31583e}#musicPane .mus-py{font-size:11px;color:#7b9180}
+#musicPane .mus-meaning{font-size:12px;color:#55695b;text-align:right}
+#musicPane .mus-quiz{border-radius:12px;background:#f3f7ed;border:1px solid #e0eadd;padding:15px;margin-top:16px}
+#musicPane .mus-quiz .mus-section-line{margin-bottom:8px}#musicPane .mus-text-button{font-size:11px;color:#3c7752;border:0;background:none;cursor:pointer;font-weight:750}
+#musicPane .mus-quiz-question{font-size:22px;color:#254d36;font-weight:800;margin:4px 0 10px}
+#musicPane .mus-quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#musicPane .mus-quiz-options button{border:1px solid #d5e2d4;border-radius:9px;background:#fff;color:#47604f;padding:9px;font-size:12px;cursor:pointer;text-align:left}
+#musicPane .mus-quiz-options button.mus-correct{background:#e0f3e2;border-color:#74aa80}
+#musicPane .mus-quiz-options button.mus-incorrect{background:#fae9e3;border-color:#cd928a}
+#musicPane .mus-quiz-feedback{margin:8px 0 0;font-size:12px;min-height:20px;color:#40764b}
+#musicPane .mus-bottom-note{text-align:center;color:#738074;font-size:12px;padding:16px;line-height:1.7}
+@media(max-width:1060px){#musicPane .mus-layout{grid-template-columns:1fr}#musicPane .mus-side{grid-template-columns:repeat(2,minmax(0,1fr))}#musicPane .mus-side .mus-panel{min-width:0}}
+@media(max-width:720px){#musicPane .mus-wrap{padding:12px 12px 50px}#musicPane .mus-hero{padding:23px 18px}#musicPane .mus-hero-art{display:none}#musicPane .mus-panel{padding:15px}#musicPane .mus-song-grid{grid-template-columns:1fr}#musicPane .mus-side{grid-template-columns:1fr}#musicPane .mus-add-form{grid-template-columns:1fr}#musicPane .mus-filter-row{flex-direction:column}#musicPane .mus-filter-row label{flex:1}}
+@media(prefers-reduced-motion:reduce){#musicPane .mus-song{transition:none}}
+html[data-hsk-theme='night'] #musicPane .mus-panel,html[data-hsk-theme='night'] #musicPane .mus-song{background:#27372e;color:#e6efe8;border-color:#4e6155}html[data-hsk-theme='night'] #musicPane .mus-song-title,html[data-hsk-theme='night'] #musicPane .mus-panel h2{color:#eaf4e9}
+
 </style></head><body><nav class="app-tabs" aria-label="Chọn nội dung học">
  <div class="app-header">
   <div class="brand-lockup" aria-label="Học tiếng Trung HSK 3.0"><span class="panda-mark" aria-hidden="true"></span><span class="brand-seal" aria-hidden="true">学</span><span class="brand-copy"><span class="brand-overline">Học tiếng Trung mỗi ngày</span><span class="brand-name">HSK 3.0 <span class="brand-chinese" lang="zh-Hans">学汉语</span></span></span></div>
   <span class="brand-aside">Từ nhận biết đến sử dụng thành thạo</span>
   <div class="hsk-lang-wrap" data-hsk-no-translate="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18"/></svg><label for="hskLanguage">Ngôn ngữ · Language</label><select id="hskLanguage" aria-label="Chọn ngôn ngữ / Choose language"><option value="vi">🇻🇳 Tiếng Việt</option><option value="en">🇬🇧 English</option></select></div><button type="button" id="hskCloudShortcut" class="hsk-cloud-open" data-hsk-no-translate="true" title="Google Drive Sync">☁️ <span id="hskCloudShortcutName" class="hsk-cloud-account-name">Tài khoản</span></button><button type="button" class="theme-shortcut" id="themeShortcut" data-hsk-no-translate="true" title="Tùy chỉnh giao diện / Customize appearance"><span aria-hidden="true">🎨</span><span data-ui-vi="Giao diện" data-ui-en="Themes">Giao diện</span></button><button type="button" class="nav-road-btn" id="navRoadQuick" onclick="document.getElementById('tabRoadmap').click()" aria-label="Mở lộ trình học tập">◷ Lộ trình của tôi</button>
  </div>
- <div class="app-tabs-inner"><button type="button" id="tabVocab" class="app-tab selected" aria-selected="true" role="tab" aria-controls="vocabPane">📖 Từ vựng · 1.000</button><button type="button" id="tabGrammar" class="app-tab" aria-selected="false" role="tab" aria-controls="grammarPane">✍️ Ngữ pháp · 175 bài</button><button type="button" id="tabSentence" class="app-tab" aria-selected="false" role="tab" aria-controls="sentencePane">🧩 Ghép câu · 301 câu</button><button type="button" id="tabListening" class="app-tab" aria-selected="false" role="tab" aria-controls="listeningPane">🎧 Nghe – Chính tả · 301</button><button type="button" id="tabReading" class="app-tab" aria-selected="false" role="tab" aria-controls="readingPane">📚 Đọc hiểu · 62 bài</button><button type="button" id="tabSrs" class="app-tab" aria-selected="false" role="tab" aria-controls="srsPane">🔁 Ôn tập SRS</button><button type="button" id="tabRoadmap" class="app-tab" aria-selected="false" role="tab" aria-controls="roadmapPane">🗓️ Lộ trình 20 tuần</button><button type="button" id="tabAdvanced" class="app-tab" aria-selected="false" role="tab" aria-controls="advancedPane" data-hsk-no-translate="true">🎓 <span data-ui-vi="HSK 4–6 · Nâng cao" data-ui-en="HSK 4–6 · Advanced">HSK 4–6 · Nâng cao</span></button><button type="button" id="tabAiChat" class="app-tab" role="tab" aria-selected="false" aria-controls="aiChatPane" data-hsk-no-translate="true">🤖 <span data-ui-vi="Hội thoại AI · HSK 1–6" data-ui-en="AI Speaking · HSK 1–6">Hội thoại AI · HSK 1–6</span></button><button class="app-tab theme-tab" id="tabTheme" type="button" role="tab" aria-controls="themePane" aria-selected="false" data-hsk-no-translate="true"><span data-ui-vi="🎨 Tùy chỉnh" data-ui-en="🎨 Appearance">🎨 Tùy chỉnh</span></button><div class="hsk-legal-nav" role="group" aria-label="Thông tin pháp lý / Legal information" data-hsk-no-translate="true"><a href="./privacy.html" data-ui-vi="🔒 Bảo mật" data-ui-en="🔒 Privacy">🔒 Bảo mật</a><a href="./terms.html" data-ui-vi="📜 Điều khoản" data-ui-en="📜 Terms">📜 Điều khoản</a></div></div><div class="panda-welcome" data-hsk-no-translate="true"><div class="panda-welcome-copy"><div class="panda-welcome-kicker">✧ HSK 3.0 · 学中文</div><strong data-ui-vi="你好！Cùng học tiếng Trung nhé!" data-ui-en="你好！Let's learn Chinese together!">你好！Cùng học tiếng Trung nhé!</strong><span data-ui-vi="Học đều mỗi ngày, tiến bộ qua từng nét chữ." data-ui-en="Learn a little every day, one character at a time.">Học đều mỗi ngày, tiến bộ qua từng nét chữ.</span></div><div class="panda-welcome-metrics"><span><b>1.000</b><small data-ui-vi="Từ vựng" data-ui-en="Words">Từ vựng</small></span><span><b>175</b><small data-ui-vi="Bài ngữ pháp" data-ui-en="Grammar lessons">Bài ngữ pháp</small></span><span><b>301</b><small data-ui-vi="Câu luyện" data-ui-en="Sentences">Câu luyện</small></span></div></div></nav><section id="vocabPane" aria-label="Học từ vựng HSK 1 đến 3"><main>
+ <div class="app-tabs-inner"><button type="button" id="tabVocab" class="app-tab selected" aria-selected="true" role="tab" aria-controls="vocabPane">📖 Từ vựng · 1.000</button><button type="button" id="tabGrammar" class="app-tab" aria-selected="false" role="tab" aria-controls="grammarPane">✍️ Ngữ pháp · 175 bài</button><button type="button" id="tabSentence" class="app-tab" aria-selected="false" role="tab" aria-controls="sentencePane">🧩 Ghép câu · 301 câu</button><button type="button" id="tabListening" class="app-tab" aria-selected="false" role="tab" aria-controls="listeningPane">🎧 Nghe – Chính tả · 301</button><button type="button" id="tabReading" class="app-tab" aria-selected="false" role="tab" aria-controls="readingPane">📚 Đọc hiểu · 62 bài</button><button type="button" id="tabSrs" class="app-tab" aria-selected="false" role="tab" aria-controls="srsPane">🔁 Ôn tập SRS</button><button type="button" id="tabRoadmap" class="app-tab" aria-selected="false" role="tab" aria-controls="roadmapPane">🗓️ Lộ trình 20 tuần</button><button type="button" id="tabAdvanced" class="app-tab" aria-selected="false" role="tab" aria-controls="advancedPane" data-hsk-no-translate="true">🎓 <span data-ui-vi="HSK 4–6 · Nâng cao" data-ui-en="HSK 4–6 · Advanced">HSK 4–6 · Nâng cao</span></button><button type="button" id="tabAiChat" class="app-tab" role="tab" aria-selected="false" aria-controls="aiChatPane" data-hsk-no-translate="true">🤖 <span data-ui-vi="Hội thoại AI · HSK 1–6" data-ui-en="AI Speaking · HSK 1–6">Hội thoại AI · HSK 1–6</span></button><button type="button" id="tabMusic" class="app-tab" role="tab" aria-selected="false" aria-controls="musicPane" data-hsk-no-translate="true">🎵 <span data-ui-vi="Học qua bài hát" data-ui-en="Learn with songs">Học qua bài hát</span></button><button class="app-tab theme-tab" id="tabTheme" type="button" role="tab" aria-controls="themePane" aria-selected="false" data-hsk-no-translate="true"><span data-ui-vi="🎨 Tùy chỉnh" data-ui-en="🎨 Appearance">🎨 Tùy chỉnh</span></button><div class="hsk-legal-nav" role="group" aria-label="Thông tin pháp lý / Legal information" data-hsk-no-translate="true"><a href="./privacy.html" data-ui-vi="🔒 Bảo mật" data-ui-en="🔒 Privacy">🔒 Bảo mật</a><a href="./terms.html" data-ui-vi="📜 Điều khoản" data-ui-en="📜 Terms">📜 Điều khoản</a></div></div><div class="panda-welcome" data-hsk-no-translate="true"><div class="panda-welcome-copy"><div class="panda-welcome-kicker">✧ HSK 3.0 · 学中文</div><strong data-ui-vi="你好！Cùng học tiếng Trung nhé!" data-ui-en="你好！Let's learn Chinese together!">你好！Cùng học tiếng Trung nhé!</strong><span data-ui-vi="Học đều mỗi ngày, tiến bộ qua từng nét chữ." data-ui-en="Learn a little every day, one character at a time.">Học đều mỗi ngày, tiến bộ qua từng nét chữ.</span></div><div class="panda-welcome-metrics"><span><b>1.000</b><small data-ui-vi="Từ vựng" data-ui-en="Words">Từ vựng</small></span><span><b>175</b><small data-ui-vi="Bài ngữ pháp" data-ui-en="Grammar lessons">Bài ngữ pháp</small></span><span><b>301</b><small data-ui-vi="Câu luyện" data-ui-en="Sentences">Câu luyện</small></span></div></div></nav><section id="vocabPane" aria-label="Học từ vựng HSK 1 đến 3"><main>
 <div class="v-hero"><div class="v-hero-copy"><div class="tag">NGHE · ĐỌC THEO · TỰ KIỂM TRA</div><h1>HSK 3.0 · Từ vựng theo chủ đề</h1><p class="intro">1.000 mục từ HSK 1–3 theo đề cương thi công bố tháng 11/2025. Chọn chủ đề hoặc cấp độ, nghe phát âm và đánh dấu những từ bạn đã học.</p></div>
 <div class="v-hero-art" aria-hidden="true"><div class="v-character-grid"><span lang="zh-Hans">学</span></div><div class="v-art-caption" lang="zh-Hans">学以致用 · 每日精进</div></div></div><div class="stats"><div class="stat"><b>300</b><span>HSK 1 · từ mới</span></div><div class="stat"><b>200</b><span>HSK 2 · từ mới</span></div><div class="stat"><b>500</b><span>HSK 3 · từ mới</span></div><div class="stat"><b id="learnedCount">0 / 1.000</b><span>Đã đánh dấu học</span></div></div><div class="progress" aria-label="Tiến độ đã học"><div id="bar"></div></div><p class="note">Âm thanh đã tích hợp. Sau khi tải file, bạn có thể học ngoại tuyến bằng Chrome hoặc Edge.</p><div class="controls"><label>Chủ đề<select id="topic"><option value="0">Tất cả chủ đề</option><option value="1">Con người và gia đình (75)</option><option value="2">Cơ thể và ngoại hình (22)</option><option value="3">Sức khỏe và chăm sóc (16)</option><option value="4">Thiên nhiên và môi trường (45)</option><option value="5">Đồ ăn và thức uống (46)</option><option value="6">Nhà ở và đồ dùng (33)</option><option value="7">Quần áo và hành lý (12)</option><option value="8">Trường học và ngôn ngữ (61)</option><option value="9">Công việc và xã hội (27)</option><option value="10">Mua sắm và tiền bạc (22)</option><option value="11">Đi lại và du lịch (76)</option><option value="12">Vị trí và phương hướng (50)</option><option value="13">Thời gian và tần suất (74)</option><option value="14">Số đếm và lượng từ (59)</option><option value="15">Màu sắc (7)</option><option value="16">Đặc điểm và so sánh (53)</option><option value="17">Cảm xúc và suy nghĩ (49)</option><option value="18">Giao tiếp và quan hệ (54)</option><option value="19">Công nghệ và truyền thông (17)</option><option value="20">Nghệ thuật và giải trí (13)</option><option value="21">Thể thao và vận động (21)</option><option value="22">Sinh hoạt và hành động (56)</option><option value="23">Ngữ pháp và cách diễn đạt (112)</option></select></label><label>Cấp độ<select id="level"><option value="all">HSK 1–3 · tất cả</option><option value="1">HSK 1 · 300 mục</option><option value="2">HSK 2 · 200 mục mới</option><option value="3">HSK 3 · 500 mục mới</option><option value="12">HSK 1–2 · 500 mục</option></select></label><label>Tiến độ<select id="learnedFilter"><option value="all">Tất cả</option><option value="new">Chưa đánh dấu</option><option value="done">Đã học</option></select></label><label class="search">Tìm kiếm<input id="search" placeholder="Chữ Hán, pinyin hoặc nghĩa tiếng Việt"></label><label>Tốc độ<select id="speed"><option value="0.75">Chậm · 0,75×</option><option value="1" selected>Bình thường · 1×</option></select></label><label>Lặp mỗi từ<select id="repeat"><option value="1">1 lần</option><option value="2" selected>2 lần</option><option value="3">3 lần</option></select></label></div><div class="toolbar"><button class="primary" id="playPage">▶ Nghe trang này</button><button id="playAll">▶ Nghe danh sách đã lọc</button><button id="stop">■ Dừng</button><button id="hide" aria-pressed="false">Ẩn nghĩa để tự kiểm tra</button><button id="hidePinyin" aria-pressed="false">Ẩn Pinyin</button><button id="hideBoth" aria-pressed="false">Ẩn cả Pinyin + nghĩa</button><button id="export">Tải danh sách CSV</button></div><section id="vocabQuizSection" data-hsk-no-translate aria-labelledby="vqHeading">
  <div class="vq-top"><div><div class="vq-kicker" id="vqKicker">复习测验 · TỰ KIỂM TRA</div><h2 id="vqHeading">Kiểm tra từ vựng đã học</h2><p class="vq-caption" id="vqCaption">Chỉ lấy câu hỏi từ các từ bạn đã đánh dấu Đã học.</p></div><div class="vq-stamp" aria-hidden="true">考</div></div>
@@ -2526,6 +2601,61 @@ apply();
 })();
 
 </script>
+<section id="musicPane" aria-label="Học tiếng Trung qua bài hát" hidden data-hsk-no-translate="true">
+ <div class="mus-wrap">
+  <header class="mus-hero">
+   <div class="mus-hero-content">
+    <span class="mus-kicker">🎵 音乐学中文 · MUSIC & MANDARIN</span>
+    <h1 data-ui-vi="Học tiếng Trung qua bài hát" data-ui-en="Learn Chinese through songs">Học tiếng Trung qua bài hát</h1>
+    <p data-ui-vi="Thư giãn cùng âm nhạc · Khám phá từ mới · Thêm bài hát bạn thích. Đây là góc học phụ, không cộng vào lộ trình HSK hoặc ôn tập SRS." data-ui-en="Relax with Mandarin music, discover words, and add your favorites. This is an optional corner: it does not affect your HSK plan or SRS.">Thư giãn cùng âm nhạc · Khám phá từ mới · Thêm bài hát bạn thích. Đây là góc học phụ, không cộng vào lộ trình HSK hoặc ôn tập SRS.</p>
+    <div class="mus-hero-pills"><span>🎼 <b id="musBuiltInCount">30</b> <span data-ui-vi="bài gợi ý" data-ui-en="suggestions">bài gợi ý</span></span><span>💚 <b id="musMyCount">0</b> <span data-ui-vi="bài yêu thích" data-ui-en="favorites">bài yêu thích</span></span><span>✨ <span data-ui-vi="Không cần API" data-ui-en="No API needed">Không cần API</span></span></div>
+   </div>
+   <div class="mus-hero-art" aria-hidden="true"><span class="mus-art-panda">🐼</span><span class="mus-art-note mus-note-a">♪</span><span class="mus-art-note mus-note-b">♫</span><span class="mus-art-note mus-note-c">♬</span></div>
+  </header>
+  <div class="mus-layout">
+   <div class="mus-primary">
+    <section class="mus-panel mus-add-panel" aria-labelledby="musAddTitle">
+      <div class="mus-section-line"><div><span class="mus-overline" data-ui-vi="BÀI HÁT CỦA BẠN" data-ui-en="YOUR SONGS">BÀI HÁT CỦA BẠN</span><h2 id="musAddTitle" data-ui-vi="Dán link YouTube để thêm bài hát" data-ui-en="Paste a YouTube link to add a song">Dán link YouTube để thêm bài hát</h2></div><span class="mus-tiny-tag" data-ui-vi="Có thể sao lưu Drive" data-ui-en="Drive backup available">Có thể sao lưu Drive</span></div>
+      <form id="musAddForm" class="mus-add-form">
+        <label class="mus-wide"><span data-ui-vi="Liên kết YouTube" data-ui-en="YouTube URL">Liên kết YouTube</span><input id="musUserUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." required maxlength="500" autocomplete="off"></label>
+        <label><span data-ui-vi="Tên bài hát (tự đặt)" data-ui-en="Song name (your label)">Tên bài hát (tự đặt)</span><input id="musUserName" type="text" placeholder="Ví dụ: Bài hát yêu thích" maxlength="90" autocomplete="off"></label>
+        <label><span data-ui-vi="Ca sĩ (không bắt buộc)" data-ui-en="Artist (optional)">Ca sĩ (không bắt buộc)</span><input id="musUserArtist" type="text" maxlength="90" placeholder="Tên ca sĩ" autocomplete="off"></label>
+        <label><span data-ui-vi="Độ khó ước lượng" data-ui-en="Estimated difficulty">Độ khó ước lượng</span><select id="musUserLevel"><option value="1">HSK 1</option><option value="2">HSK 2</option><option value="3" selected>HSK 3</option><option value="4">HSK 4</option><option value="5">HSK 5</option><option value="6">HSK 6</option></select></label>
+        <label><span data-ui-vi="Chủ đề học từ" data-ui-en="Vocabulary topic">Chủ đề học từ</span><select id="musUserTopic"><option value="daily">Sinh hoạt</option><option value="friends">Bạn bè</option><option value="family">Gia đình</option><option value="love">Cảm xúc</option><option value="nature">Thiên nhiên</option><option value="study">Học tập</option><option value="dream">Ước mơ</option><option value="travel">Du lịch</option><option value="time">Thời gian</option><option value="culture">Văn hóa</option></select></label>
+        <button class="mus-primary-button mus-wide" type="submit">＋ <span data-ui-vi="Thêm bài hát vào thư viện của tôi" data-ui-en="Add song to my library">Thêm bài hát vào thư viện của tôi</span></button>
+      </form>
+      <p class="mus-footnote" data-ui-vi="Chỉ thêm link YouTube: trang sẽ nhúng video khi được phép, không tự lấy lời bài hát hoặc phụ đề. Từ vựng được gợi ý theo chủ đề bạn chọn." data-ui-en="A YouTube link can embed the video when allowed; it does not retrieve lyrics or captions. Vocabulary comes from the topic you choose.">Chỉ thêm link YouTube: trang sẽ nhúng video khi được phép, không tự lấy lời bài hát hoặc phụ đề. Từ vựng được gợi ý theo chủ đề bạn chọn.</p>
+      <div class="mus-drive-tools">
+        <div><strong data-ui-vi="☁️ Sao lưu thư viện nhạc" data-ui-en="☁️ Music library backup">☁️ Sao lưu thư viện nhạc</strong><p class="mus-footnote" data-ui-vi="Bài tự thêm, bài yêu thích, link video và kết quả mini game sẽ được lưu chung khi bạn chọn Lưu lên Drive trong Tài khoản. Ở thiết bị khác, hãy chọn Khôi phục từ Drive trước." data-ui-en="Your songs, favorites, chosen videos and mini-game scores are included when you select Save to Drive in Account. On another device choose Restore from Drive first.">Bài tự thêm, bài yêu thích, link video và kết quả mini game sẽ được lưu chung khi bạn chọn Lưu lên Drive trong Tài khoản. Ở thiết bị khác, hãy chọn Khôi phục từ Drive trước.</p></div>
+        <button type="button" id="musOpenDrive" class="mus-secondary-button" data-ui-vi="☁️ Mở đồng bộ Drive" data-ui-en="☁️ Open Drive sync">☁️ Mở đồng bộ Drive</button>
+      </div>
+      <p id="musFormNotice" class="mus-notice" role="status" aria-live="polite"></p>
+    </section>
+    <section class="mus-panel" aria-labelledby="musLibraryTitle">
+      <div class="mus-section-line"><div><span class="mus-overline" data-ui-vi="THƯ VIỆN NHẠC" data-ui-en="SONG LIBRARY">THƯ VIỆN NHẠC</span><h2 id="musLibraryTitle" data-ui-vi="Gợi ý bài hát từ dễ đến khó" data-ui-en="Songs from easier to harder">Gợi ý bài hát từ dễ đến khó</h2></div><span class="mus-tiny-tag" data-ui-vi="HSK 1–6 · tham khảo" data-ui-en="HSK 1–6 · estimates">HSK 1–6 · tham khảo</span></div>
+      <div class="mus-filter-row"><label><span class="mus-sr" data-ui-vi="Cấp độ" data-ui-en="Level">Cấp độ</span><select id="musLevelFilter"><option value="all">Tất cả HSK 1–6</option><option value="1">HSK 1 · Dễ</option><option value="2">HSK 2</option><option value="3">HSK 3</option><option value="4">HSK 4</option><option value="5">HSK 5</option><option value="6">HSK 6 · Khó</option><option value="mine">💚 Bài của tôi</option><option value="favs">⭐ Đã thích</option></select></label><label class="mus-search"><span class="mus-sr" data-ui-vi="Tìm bài hát" data-ui-en="Search songs">Tìm bài hát</span><input type="search" id="musSearch" placeholder="🔎 Tên bài hát / ca sĩ / pinyin" maxlength="100"></label></div>
+      <p class="mus-footnote" data-ui-vi="Mức HSK là độ khó nghe tham khảo, không phải phân loại chính thức của đề thi. Các bài có MV đã xác minh sẽ phát trực tiếp; bài khác có nút tìm video trên YouTube." data-ui-en="HSK levels are listening-difficulty estimates, not official exam classifications. Verified videos play here; other songs link to YouTube search.">Mức HSK là độ khó nghe tham khảo, không phải phân loại chính thức của đề thi. Các bài có MV đã xác minh sẽ phát trực tiếp; bài khác có nút tìm video trên YouTube.</p>
+      <div id="musSongGrid" class="mus-song-grid" aria-live="polite"></div>
+      <div id="musEmpty" class="mus-empty" hidden data-ui-vi="Chưa có bài hát phù hợp. Hãy thử bộ lọc khác hoặc dán link YouTube ở trên." data-ui-en="No matching songs. Try another filter or paste a YouTube link above.">Chưa có bài hát phù hợp. Hãy thử bộ lọc khác hoặc dán link YouTube ở trên.</div>
+    </section>
+   </div>
+   <aside class="mus-side">
+    <section class="mus-panel mus-player-panel" aria-labelledby="musPlayerTitle"><span class="mus-overline" data-ui-vi="GÓC NGHE NHẠC" data-ui-en="LISTENING CORNER">GÓC NGHE NHẠC</span><h2 id="musPlayerTitle" data-ui-vi="Chọn một bài để bắt đầu" data-ui-en="Pick a song to begin">Chọn một bài để bắt đầu</h2><p id="musCurrentMeta" class="mus-meta"></p>
+      <div id="musVideoBox" class="mus-video-box"><div class="mus-video-placeholder">🎧<small data-ui-vi="Chọn bài hát để mở video" data-ui-en="Choose a song to load video">Chọn bài hát để mở video</small></div></div>
+      <div class="mus-player-actions"><a id="musYouTubeLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/" class="mus-secondary-button" data-ui-vi="Mở trên YouTube" data-ui-en="Open on YouTube">Mở trên YouTube</a></div>
+      <label class="mus-custom-link"><span data-ui-vi="Có link video chính xác cho bài đang chọn?" data-ui-en="Have a direct video link for this song?">Có link video chính xác cho bài đang chọn?</span><div class="mus-custom-link-row"><input id="musSelectedVideoUrl" type="url" placeholder="Dán link YouTube để phát ở đây" maxlength="500"><button type="button" id="musUseVideo" class="mus-primary-button" data-ui-vi="Phát" data-ui-en="Play">Phát</button></div></label>
+    </section>
+    <section class="mus-panel mus-study-panel" aria-labelledby="musWordsTitle"><div class="mus-section-line"><div><span class="mus-overline" data-ui-vi="TỪ VỰNG CHỦ ĐỀ" data-ui-en="TOPIC WORDS">TỪ VỰNG CHỦ ĐỀ</span><h2 id="musWordsTitle" data-ui-vi="Học vài từ thú vị" data-ui-en="Learn a few useful words">Học vài từ thú vị</h2></div><span class="mus-tiny-tag">✦ <span data-ui-vi="Không tính SRS" data-ui-en="No SRS credit">Không tính SRS</span></span></div>
+      <p id="musWordIntro" class="mus-footnote" data-ui-vi="Các từ dưới đây là từ liên quan đến chủ đề, không phải lời bài hát." data-ui-en="These words relate to the topic; they are not song lyrics.">Các từ dưới đây là từ liên quan đến chủ đề, không phải lời bài hát.</p><div id="musVocab" class="mus-vocab-list"></div>
+      <div class="mus-quiz"><div class="mus-section-line"><strong data-ui-vi="Mini game: Chọn nghĩa đúng" data-ui-en="Mini game: Pick the meaning">Mini game: Chọn nghĩa đúng</strong><button type="button" class="mus-text-button" id="musNextQuiz" data-ui-vi="Đổi câu ↻" data-ui-en="Next ↻">Đổi câu ↻</button></div><p id="musQuizQuestion" class="mus-quiz-question"></p><div id="musQuizAnswers" class="mus-quiz-options"></div><p id="musQuizFeedback" role="status" aria-live="polite" class="mus-quiz-feedback"></p><p id="musQuizStats" class="mus-footnote" aria-live="polite">Đã luyện: 0 · Đúng: 0</p></div>
+      <p class="mus-footnote" data-ui-vi="Mini game chỉ dành cho tab âm nhạc; kết quả không đi vào bảng điểm, ôn luyện hay lộ trình HSK." data-ui-en="This mini game is music-only; scores never affect HSK progress, reviews or the roadmap.">Mini game chỉ dành cho tab âm nhạc; kết quả không đi vào bảng điểm, ôn luyện hay lộ trình HSK.</p>
+    </section>
+   </aside>
+  </div>
+  <p class="mus-bottom-note" data-ui-vi="Tôn trọng bản quyền: video phát qua trình nhúng chính thức của YouTube khi được cho phép; website không sao chép âm thanh hoặc lời bài hát. Danh sách cá nhân có thể sao lưu lên Google Drive khi bạn chủ động chọn Lưu lên Drive." data-ui-en="Copyright matters: videos play via the official YouTube embed when allowed; no audio or lyrics are copied. Your personal list can be backed up to Google Drive when you choose Save to Drive.">Tôn trọng bản quyền: video phát qua trình nhúng chính thức của YouTube khi được cho phép; website không sao chép âm thanh hoặc lời bài hát. Danh sách cá nhân có thể sao lưu lên Google Drive khi bạn chủ động chọn Lưu lên Drive.</p>
+ </div>
+</section>
+
 <section id="aiChatPane" aria-label="AI Chinese conversation practice" hidden data-hsk-no-translate="true">
  <div class="ai-shell">
   <header class="ai-hero"><div><div class="ai-kicker">🐼 HSK 1–6 · 中文口语练习</div><h1 id="aiTitle">Trò chuyện tiếng Trung cùng AI</h1><p id="aiSubtitle">Luyện tình huống thực tế · Sửa câu · Luyện phản xạ bằng tiếng Trung</p></div><div class="ai-bear" aria-hidden="true">🐼🎋</div></header>
@@ -2614,7 +2744,7 @@ window.HSK30Appearance={setTheme:(theme)=>{if(!presets[theme])return false;cfg.t
 </script>
 <footer class="hsk-legal-footer" data-hsk-no-translate="true"><span data-ui-vi="HSK 3.0 · Dự án học tập độc lập" data-ui-en="HSK 3.0 · Independent study project">HSK 3.0 · Dự án học tập độc lập</span><span><a href="./privacy.html" data-ui-vi="Chính sách bảo mật" data-ui-en="Privacy Policy">Chính sách bảo mật</a> · <a href="./terms.html" data-ui-vi="Điều khoản sử dụng" data-ui-en="Terms of Service">Điều khoản sử dụng</a></span></footer>
 <dialog id="hskCloudDialog" data-hsk-no-translate="true" aria-labelledby="hskCloudTitle">
- <div class="hsk-cloud-top"><div><h2 id="hskCloudTitle" data-cloud-text="title">Tài khoản & Đồng bộ Google Drive</h2><p data-cloud-text="subtitle">Lưu tiến độ HSK trên tài khoản Google, tiếp tục học trên thiết bị khác.</p></div><button id="hskCloudClose" class="hsk-cloud-close" aria-label="Close" type="button">×</button></div>
+ <div class="hsk-cloud-top"><div><h2 id="hskCloudTitle" data-cloud-text="title">Tài khoản & Đồng bộ Google Drive</h2><p data-cloud-text="subtitle">Sao lưu tiến độ HSK và thư viện âm nhạc cá nhân lên Google Drive.</p></div><button id="hskCloudClose" class="hsk-cloud-close" aria-label="Close" type="button">×</button></div>
  <div class="hsk-cloud-body">
   <div><label for="hskCloudClientId" class="hsk-cloud-label" data-cloud-text="client">Google OAuth Client ID</label><input id="hskCloudClientId" class="hsk-cloud-input" spellcheck="false" autocapitalize="off" autocomplete="off"><p class="hsk-cloud-note" data-cloud-text="tip">Không sử dụng Client Secret. Chỉ cần Client ID của ứng dụng Web.</p></div>
   <div class="hsk-cloud-status" id="hskCloudStatus" role="status" aria-live="polite">Chưa kết nối. Bạn vẫn học và lưu tiến độ trên trình duyệt bình thường.</div>
@@ -2622,7 +2752,7 @@ window.HSK30Appearance={setTheme:(theme)=>{if(!presets[theme])return false;cfg.t
   <div class="hsk-cloud-grid"><div class="hsk-cloud-stat"><strong data-cloud-text="local">Trên máy này</strong><span id="hskCloudLocal">—</span></div><div class="hsk-cloud-stat"><strong data-cloud-text="file">Tệp sao lưu</strong><span id="hskCloudRemote">—</span></div></div>
   <div class="hsk-cloud-buttons"><button type="button" id="hskCloudLogin" class="hsk-cloud-primary" data-cloud-text="login">Đăng nhập Google</button><button type="button" id="hskCloudSave" class="hsk-cloud-primary" data-cloud-text="save" disabled hidden>↑ Lưu lên Drive</button><button type="button" id="hskCloudLoad" data-cloud-text="load" disabled hidden>↓ Khôi phục từ Drive</button><button type="button" id="hskCloudRefresh" data-cloud-text="refresh" disabled hidden>↻ Kiểm tra Drive</button><button type="button" id="hskCloudDelete" data-cloud-text="delete" disabled hidden>🗑 Xóa bản sao Drive</button><button type="button" id="hskCloudLogout" data-cloud-text="logout" disabled hidden>Ngắt kết nối</button></div>
   <label class="hsk-cloud-switch"><input type="checkbox" id="hskCloudAuto" disabled><span data-cloud-text="auto">Tự động sao lưu khi đang kết nối (khoảng 1 phút/lần)</span></label>
-  <div class="hsk-cloud-privacy"><p>🔒 <span data-cloud-text="priv">Tiến độ được lưu trong App Data Folder ẩn của tài khoản Google; không cần cấp quyền đọc các tệp Drive khác.</span> · <a class="hsk-cloud-policy-link" href="./privacy.html"><span data-ui-vi="Chính sách bảo mật" data-ui-en="Privacy Policy">Chính sách bảo mật</span></a></p><p>⚠️ <span data-cloud-text="safe">Lần đầu không tự ghi đè: chọn Lưu hoặc Khôi phục. Khi đổi tài khoản, hãy sao lưu JSON trước.</span></p></div>
+  <div class="hsk-cloud-privacy"><p>🔒 <span data-cloud-text="priv">Tiến độ HSK và thư viện âm nhạc được lưu trong App Data Folder riêng của ứng dụng; không cần đọc tệp Drive khác.</span> · <a class="hsk-cloud-policy-link" href="./privacy.html"><span data-ui-vi="Chính sách bảo mật" data-ui-en="Privacy Policy">Chính sách bảo mật</span></a></p><p>⚠️ <span data-cloud-text="safe">Âm nhạc được sao lưu chung nhưng không ảnh hưởng SRS/lộ trình. Ở thiết bị mới hãy Khôi phục trước khi Lưu.</span></p></div>
  </div>
 </dialog>
 
@@ -2638,19 +2768,19 @@ const SCOPE='https://www.googleapis.com/auth/drive.appdata';
 const DRIVE='https://www.googleapis.com/drive/v3/files';
 const UPLOAD='https://www.googleapis.com/upload/drive/v3/files';
 const FILENAME='HSK30_tien_do_hoc_tap_v1.json';
-const KEYS=['hsk30_2025_1000_learned_v1','hsk30_2025_grammar_175_v1','hsk30_sentence_builder_2026_v1','hsk30_srs_roadmap_cards_v1','hsk30_roadmap_plan_20w_v1','hsk30_dictation_progress_v1','hsk30_reading_progress_v1','hsk30_vocab_quiz_history_v1','hsk30_interface_preferences_v1','hsk30_ui_language_v1','hsk30_advanced_progress_v1','hsk30_ai_learning_profile_v1'];
+const KEYS=['hsk30_2025_1000_learned_v1','hsk30_2025_grammar_175_v1','hsk30_sentence_builder_2026_v1','hsk30_srs_roadmap_cards_v1','hsk30_roadmap_plan_20w_v1','hsk30_dictation_progress_v1','hsk30_reading_progress_v1','hsk30_vocab_quiz_history_v1','hsk30_interface_preferences_v1','hsk30_ui_language_v1','hsk30_advanced_progress_v1','hsk30_ai_learning_profile_v1','hsk30_music_custom_songs_v1','hsk30_music_favorite_songs_v1','hsk30_music_video_overrides_v1','hsk30_music_quiz_stats_v1'];
 const MSG={
- vi:{title:'Tài khoản & Đồng bộ Google Drive',subtitle:'Lưu tiến độ HSK trên tài khoản Google, tiếp tục học trên thiết bị khác.',
+ vi:{title:'Tài khoản & Đồng bộ Google Drive',subtitle:'Sao lưu tiến độ HSK và thư viện âm nhạc cá nhân lên Google Drive.',
     delete:'🗑 Xóa bản sao Drive',deleteConfirm:'XÓA bản sao lưu tiến độ HSK trên Google Drive? Tiến độ đang có trên thiết bị sẽ được giữ nguyên. Hành động này không thể hoàn tác.',deleted:'Đã xóa bản sao lưu Google Drive. Tiến độ trên máy được giữ nguyên.',login:'Đăng nhập Google',logout:'Ngắt kết nối',save:'↑ Lưu lên Drive',load:'↓ Khôi phục từ Drive',refresh:'↻ Kiểm tra Drive',
     auto:'Tự động sao lưu khi đang kết nối (khoảng 1 phút/lần)',client:'Google OAuth Client ID',
     tip:'Không sử dụng Client Secret. Chỉ cần Client ID của ứng dụng Web.',
-    priv:'Tiến độ được lưu trong App Data Folder ẩn của tài khoản Google; không cần cấp quyền đọc các tệp Drive khác.',
-    safe:'Lần đầu không tự ghi đè: chọn Lưu hoặc Khôi phục. Khi đổi tài khoản, hãy sao lưu JSON trước.',
+    priv:'Tiến độ HSK và thư viện âm nhạc được lưu trong App Data Folder riêng của ứng dụng; không cần đọc tệp Drive khác.',
+    safe:'Âm nhạc được sao lưu chung nhưng không ảnh hưởng SRS/lộ trình. Ở thiết bị mới hãy Khôi phục trước khi Lưu để không ghi đè danh sách nhạc trên Drive.',
     offline:'Chưa kết nối. Bạn vẫn học và lưu tiến độ trên trình duyệt bình thường.',
     ready:'Đã kết nối Google Drive. Chọn thao tác để đồng bộ lần đầu.',
     none:'Chưa có bản sao lưu trên Drive của tài khoản này.',
     remote:'Bản Drive gần nhất',local:'Trên máy này',items:'từ đã đánh dấu',file:'Tệp sao lưu',
-    saved:'Đã lưu tiến độ lên Google Drive thành công.',restored:'Đã khôi phục dữ liệu từ Google Drive. Đang tải lại trang…',
+    saved:'Đã sao lưu tiến độ HSK và dữ liệu âm nhạc lên Google Drive.',restored:'Đã khôi phục dữ liệu từ Google Drive. Đang tải lại trang…',
     close:'Đóng',expired:'Phiên Google hết hạn. Nhấn Đăng nhập Google để tiếp tục.',
     wrongOrigin:'Chức năng Google chỉ hoạt động trên website HTTPS đã cấu hình trong Google Cloud (hoặc localhost).',
     library:'Không tải được thư viện Google. Kiểm tra kết nối Internet và thử lại.',
@@ -2659,8 +2789,8 @@ const MSG={
     same:'Tiến độ hiện tại đã trùng với bản đồng bộ gần nhất.',
     noToken:'Vui lòng đăng nhập Google trước.',noData:'Không có bản sao lưu trên Google Drive để khôi phục.',
     proceed:'Lưu tiến độ đang có trên máy lên Google Drive?',
-    overwrite:'Google Drive đã có dữ liệu học. Bạn có chắc muốn GHI ĐÈ bản đó bằng tiến độ trên máy này? Nếu chưa chắc, hãy chọn Khôi phục từ Drive hoặc tải sao lưu JSON trước.',
-    restoreConfirm:'Khôi phục sẽ THAY THẾ tiến độ trên máy bằng dữ liệu từ Drive. Một bản sao lưu JSON của tiến độ trên máy sẽ được tải xuống trước. Tiếp tục?',
+    overwrite:'Drive đã có dữ liệu HSK và có thể có bài hát/yêu thích từ thiết bị khác. Lưu từ máy này sẽ GHI ĐÈ toàn bộ bản Drive, gồm phần âm nhạc. Nếu muốn lấy bài hát trên Drive trước, hãy chọn Khôi phục.',
+    restoreConfirm:'Khôi phục sẽ THAY THẾ tiến độ HSK và dữ liệu âm nhạc có trong bản Drive lên thiết bị này. Dữ liệu âm nhạc không có trong bản sao lưu cũ sẽ được giữ nguyên. Trang sẽ tải xuống JSON của máy trước. Tiếp tục?',
     autoNeed:'Hãy lưu lên Drive hoặc khôi phục từ Drive thủ công một lần trước khi bật tự động đồng bộ.',
     autoOn:'Đã bật tự động lưu. Ứng dụng sẽ kiểm tra thay đổi khoảng mỗi phút khi bạn đang kết nối.',
     autoOff:'Đã tắt tự động lưu. Bạn vẫn có thể lưu thủ công.',
@@ -2672,16 +2802,16 @@ const MSG={
     refreshOk:'Đã cập nhật thông tin bản sao lưu Drive.',
     mismatch:'Tiến độ khác nhau giữa máy và Drive. Hãy chọn Lưu hoặc Khôi phục sau khi kiểm tra kỹ.',
     error:'Có lỗi: '},
- en:{title:'Account & Google Drive Sync',subtitle:'Save your HSK progress to your Google Account and continue on another device.',
+ en:{title:'Account & Google Drive Sync',subtitle:'Back up HSK study progress and your personal music library to Google Drive.',
     delete:'🗑 Delete Drive backup',deleteConfirm:'DELETE your HSK progress backup from Google Drive? Local progress on this device will remain intact. This cannot be undone.',deleted:'Drive backup deleted. Local progress has been preserved.',login:'Connect Google',logout:'Disconnect',save:'↑ Save to Drive',load:'↓ Restore from Drive',refresh:'↻ Check Drive',
     auto:'Automatically back up while connected (about once per minute)',client:'Google OAuth Client ID',
     tip:'Never use a Client Secret. A Web application Client ID is sufficient.',
-    priv:'Progress is stored in your Google Account’s private App Data Folder, without permission to read other Drive files.',
-    safe:'No first-time overwrite: choose Save or Restore. Download a JSON backup before switching accounts.',
+    priv:'HSK progress and your music library are saved in the private app-data folder, with no access to other Drive files.',
+    safe:'Music backs up alongside HSK but does not affect SRS/roadmaps. On a new device choose Restore before Save to avoid overwriting songs on Drive.',
     offline:'Disconnected. Your study progress is still stored locally in this browser.',
     ready:'Connected to Google Drive. Choose your first sync action.',
     none:'No HSK backup in this Google Account yet.',remote:'Last Drive backup',local:'On this device',items:'marked words',file:'Backup file',
-    saved:'Progress saved to Google Drive.',restored:'Restored from Google Drive. Reloading…',close:'Close',
+    saved:'HSK progress and music library saved to Google Drive.',restored:'Restored from Google Drive. Reloading…',close:'Close',
     expired:'Google session expired. Connect Google again to continue.',
     wrongOrigin:'Google sign-in requires a configured HTTPS website (or localhost).',
     library:'Could not load Google sign-in. Check your Internet connection and try again.',
@@ -2689,8 +2819,8 @@ const MSG={
     conflict:'Drive data changed on another device. Auto-sync has been paused to avoid overwriting. Review and choose a sync action.',
     same:'Local progress matches the last synced snapshot.',noToken:'Please connect Google first.',noData:'There is no Drive backup to restore.',
     proceed:'Save this device’s progress to Google Drive?',
-    overwrite:'Drive already contains study progress. Are you sure you want to OVERWRITE it with the progress on this device? Restore from Drive or download a JSON backup if unsure.',
-    restoreConfirm:'Restore REPLACES local progress with Drive data. A JSON backup of local progress will be downloaded first. Continue?',
+    overwrite:'Drive already has a backup that may include music from another device. Saving now OVERWRITES all Drive data, including music. Choose Restore first if you need songs from Drive.',
+    restoreConfirm:'Restore REPLACES local HSK and music data where present in the Drive backup. Missing music fields in older backups will preserve your local music. A local JSON backup will download first. Continue?',
     autoNeed:'Save to Drive or Restore from Drive once before enabling auto-sync.',
     autoOn:'Auto-sync enabled. Changes are checked about once per minute while connected.',
     autoOff:'Auto-sync disabled. You can still save manually.',invalid:'Drive backup is not a valid HSK backup. Local data was not changed.',
@@ -2703,10 +2833,16 @@ let accessToken='',tokenClient=null,remote=null,remoteStamp=null,initialized=fal
 const lang=()=>window.HSK30Language?.current==='en'?'en':'vi';
 const tr=k=>(MSG[lang()][k]||k);
 const status=(s,error=false)=>{const el=Q('hskCloudStatus');el.textContent=s;el.dataset.state=error?'error':'normal';};
-function snapshot(){const data={};for(const key of KEYS){if(key==='hsk30_ai_learning_profile_v1'&&localStorage.getItem('hsk30_ai_cloud_optin_v1')!=='true')continue;let v=null;try{const s=localStorage.getItem(key);v=s===null?null:(key==='hsk30_ui_language_v1'?s:JSON.parse(s));}catch(_){v=null}data[key]=v;}return {format:'HSK30-learning-backup-v1',version:2,created:new Date().toISOString(),data};}
+function snapshot(){const data={};for(const key of KEYS){if(key==='hsk30_ai_learning_profile_v1'&&localStorage.getItem('hsk30_ai_cloud_optin_v1')!=='true')continue;let v=null;try{const s=localStorage.getItem(key);v=s===null?null:(key==='hsk30_ui_language_v1'?s:JSON.parse(s));}catch(_){v=null}data[key]=v;}return {format:'HSK30-learning-backup-v1',version:3,created:new Date().toISOString(),data};}
 function signature(payload){return JSON.stringify(payload.data);}
 function valid(payload){if(!payload||payload.format!=='HSK30-learning-backup-v1'||!payload.data||typeof payload.data!=='object'||Array.isArray(payload.data))return false;return KEYS.some(k=>Object.prototype.hasOwnProperty.call(payload.data,k));}
-function info(payload){const d=payload?.data||{};const n=Array.isArray(d.hsk30_2025_1000_learned_v1)?d.hsk30_2025_1000_learned_v1.length:0;return n+' '+tr('items');}
+function info(payload){
+ const d=payload?.data||{};
+ const n=Array.isArray(d.hsk30_2025_1000_learned_v1)?d.hsk30_2025_1000_learned_v1.length:0;
+ const songs=Array.isArray(d.hsk30_music_custom_songs_v1)?d.hsk30_music_custom_songs_v1.length:0;
+ const favs=Array.isArray(d.hsk30_music_favorite_songs_v1)?d.hsk30_music_favorite_songs_v1.length:0;
+ return n+' '+tr('items')+' · '+(lang()==='en'?songs+' songs, '+favs+' favorites':songs+' bài tự thêm, '+favs+' yêu thích');
+}
 function download(payload){const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='HSK30_tien_do_truoc_khi_khoi_phuc_'+new Date().toISOString().slice(0,10)+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);}
 function paintAccount(){
  const connected=!!accessToken;
@@ -2756,11 +2892,24 @@ async function save(auto=false){if(!accessToken)throw Error(tr('noToken'));if(au
  finally{setBusy(false);}
 }
 async function deleteBackup(){if(!accessToken)throw Error(tr('noToken'));setBusy(true);try{const latest=await findRemote();if(!latest){status(tr('noData'),true);return;}if(!window.confirm(tr('deleteConfirm')))return;await request(DRIVE+'/'+encodeURIComponent(latest.id),{method:'DELETE'});remote=null;remoteStamp=null;autoEnabled=false;baseline=null;conflict=false;paint();status(tr('deleted'));}finally{setBusy(false);}}
-async function restore(){if(!accessToken)throw Error(tr('noToken'));setBusy(true);try{const latest=await findRemote();if(!latest){remote=null;status(tr('noData'),true);return;}const data=await readRemote(latest);
+ function validMusicBackupValue(key,value){
+  if(!key.startsWith('hsk30_music_')||value===null)return true;
+  if(key==='hsk30_music_custom_songs_v1')return Array.isArray(value)&&value.length<=150&&value.every(s=>s&&typeof s==='object'&&!Array.isArray(s)&&typeof s.id==='string'&&s.id.length<=100&&typeof s.name==='string'&&s.name.length<=90&&typeof s.artist==='string'&&s.artist.length<=90&&Number.isInteger(s.level)&&s.level>=1&&s.level<=6&&typeof s.topic==='string'&&s.topic.length<=25&&typeof s.videoId==='string'&&/^[A-Za-z0-9_-]{11}$/.test(s.videoId));
+  if(key==='hsk30_music_favorite_songs_v1')return Array.isArray(value)&&value.length<=300&&value.every(id=>typeof id==='string'&&id.length<=100);
+  if(key==='hsk30_music_video_overrides_v1')return value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length<=300&&Object.entries(value).every(([id,v])=>id.length<=100&&typeof v==='string'&&/^[A-Za-z0-9_-]{11}$/.test(v));
+  if(key==='hsk30_music_quiz_stats_v1')return value&&typeof value==='object'&&!Array.isArray(value)&&Number.isSafeInteger(value.total)&&value.total>=0&&Number.isSafeInteger(value.correct)&&value.correct>=0&&value.correct<=value.total&&Array.isArray(value.history)&&value.history.length<=100&&value.history.every(r=>r&&typeof r==='object'&&typeof r.songId==='string'&&r.songId.length<=100&&typeof r.word==='string'&&r.word.length<=40&&typeof r.ok==='boolean'&&typeof r.when==='string'&&r.when.length<=40);
+  return false;
+ }
+ async function restore(){if(!accessToken)throw Error(tr('noToken'));setBusy(true);try{const latest=await findRemote();if(!latest){remote=null;status(tr('noData'),true);return;}const data=await readRemote(latest);
  if(!window.confirm(tr('restoreConfirm')))return;
  download(snapshot());
  // Validate every value before modifying any saved progress. Never execute data from Drive.
- for(const key of KEYS){if(!Object.prototype.hasOwnProperty.call(data.data,key))continue;const value=data.data[key];if(value!==null&&typeof value!=='string'&&typeof value!=='number'&&typeof value!=='boolean'&&typeof value!=='object')throw Error(tr('invalid'));}
+  for(const key of KEYS){
+   if(!Object.prototype.hasOwnProperty.call(data.data,key))continue;
+   const value=data.data[key];
+   if(value!==null&&typeof value!=='string'&&typeof value!=='number'&&typeof value!=='boolean'&&typeof value!=='object')throw Error(tr('invalid'));
+   if(!validMusicBackupValue(key,value))throw Error(tr('invalid'));
+  }
  for(const key of KEYS){if(!Object.prototype.hasOwnProperty.call(data.data,key))continue;const value=data.data[key];if(value===null)localStorage.removeItem(key);else localStorage.setItem(key,key==='hsk30_ui_language_v1'?String(value):JSON.stringify(value));}
  status(tr('restored'));setTimeout(()=>location.reload(),700);
  }finally{setBusy(false);}}
@@ -3073,4 +3222,80 @@ updateUI();startIfEmpty();updateUI();if(settings.endpoint&&location.protocol==='
 window.HSK30AIChat={open:()=>tab.click(),getProfile:()=>JSON.parse(JSON.stringify(profile)),getMode:()=>settings.mode};
 })();
 
-</script></body></html>
+</script><script id="hsk-music-js">
+/* HSK30 Music companion module. Separate from SRS/roadmap; personal music data is backed up with Drive. */
+(()=>{'use strict';
+const $=id=>document.getElementById(id), tab=$('tabMusic'), pane=$('musicPane');
+if(!tab||!pane)return;
+const USER_KEY='hsk30_music_custom_songs_v1',FAV_KEY='hsk30_music_favorite_songs_v1',LINK_KEY='hsk30_music_video_overrides_v1',QUIZ_KEY='hsk30_music_quiz_stats_v1';
+const data=[
+ ['小星星','儿歌',1,'nature'],['两只老虎','儿歌',1,'nature'],['生日快乐歌','儿歌',1,'family'],['新年好','儿歌',1,'family'],['找朋友','儿歌',1,'friends'],
+ ['甜蜜蜜','邓丽君',2,'love','5eF8oOWtsk4'],['月亮代表我的心','邓丽君',2,'nature'],['朋友','周华健',2,'friends'],['小苹果','筷子兄弟',2,'daily'],['对面的女孩看过来','任贤齐',2,'friends'],
+ ['童话','光良',3,'dream','bBcp_ljCBGU'],['后来','刘若英',3,'time'],['遇见','孙燕姿',3,'travel'],['隐形的翅膀','张韶涵',3,'dream'],['小幸运','田馥甄',3,'study'],
+ ['平凡之路','朴树',4,'travel','ecTSlaNM0Z0'],['告白气球','周杰伦',4,'love','bu7nU9Mhpyo'],['稻香','周杰伦',4,'nature','sHD_z90ZKV0'],['有点甜','汪苏泷 / BY2',4,'love'],['稳稳的幸福','陈奕迅',4,'love'],
+ ['光年之外','G.E.M. 邓紫棋',5,'nature','T4SimnaiktU'],['大鱼','周深',5,'nature'],['孤勇者','陈奕迅',5,'dream'],['起风了','买辣椒也用券',5,'time'],['青花瓷','周杰伦',5,'culture'],
+ ['七里香','周杰伦',6,'nature'],['夜曲','周杰伦',6,'culture'],['山丘','李宗盛',6,'time'],['卷珠帘','霍尊',6,'culture'],['兰亭序','周杰伦',6,'culture']
+].map((x,i)=>({id:'rec-'+i,name:x[0],artist:x[1],level:x[2],topic:x[3],videoId:x[4]||'',custom:false}));
+const TOPICS={
+ daily:{vi:'Sinh hoạt',en:'Daily life',words:[['今天','jīntiān','hôm nay','today'],['快乐','kuàilè','vui vẻ','happy'],['喜欢','xǐhuan','thích','like'],['一起','yìqǐ','cùng nhau','together'],['生活','shēnghuó','cuộc sống','life']]},
+ friends:{vi:'Bạn bè',en:'Friendship',words:[['朋友','péngyou','bạn bè','friend'],['认识','rènshi','quen biết','know someone'],['帮助','bāngzhù','giúp đỡ','help'],['见面','jiànmiàn','gặp mặt','meet'],['陪伴','péibàn','đồng hành','accompany']]},
+ family:{vi:'Gia đình',en:'Family',words:[['生日','shēngrì','sinh nhật','birthday'],['家','jiā','nhà','home'],['家人','jiārén','người nhà','family member'],['祝福','zhùfú','chúc phúc','blessing'],['幸福','xìngfú','hạnh phúc','happiness']]},
+ love:{vi:'Cảm xúc',en:'Feelings',words:[['心','xīn','trái tim','heart'],['甜蜜','tiánmì','ngọt ngào','sweet'],['相信','xiāngxìn','tin tưởng','believe'],['想念','xiǎngniàn','nhớ nhung','miss someone'],['温柔','wēnróu','dịu dàng','gentle']]},
+ nature:{vi:'Thiên nhiên',en:'Nature',words:[['月亮','yuèliang','mặt trăng','moon'],['星星','xīngxing','ngôi sao','star'],['天空','tiānkōng','bầu trời','sky'],['风','fēng','gió','wind'],['大海','dàhǎi','biển lớn','sea']]},
+ study:{vi:'Học tập',en:'Study',words:[['学校','xuéxiào','trường học','school'],['同学','tóngxué','bạn học','classmate'],['努力','nǔlì','cố gắng','work hard'],['回忆','huíyì','ký ức','memory'],['成长','chéngzhǎng','trưởng thành','grow up']]},
+ dream:{vi:'Ước mơ',en:'Dreams',words:[['梦想','mèngxiǎng','ước mơ','dream'],['希望','xīwàng','hy vọng','hope'],['勇敢','yǒnggǎn','dũng cảm','brave'],['未来','wèilái','tương lai','future'],['坚持','jiānchí','kiên trì','persist']]},
+ travel:{vi:'Du lịch',en:'Travel',words:[['旅行','lǚxíng','du lịch','travel'],['城市','chéngshì','thành phố','city'],['远方','yuǎnfāng','phương xa','faraway place'],['道路','dàolù','con đường','road'],['方向','fāngxiàng','phương hướng','direction']]},
+ time:{vi:'Thời gian',en:'Time',words:[['过去','guòqù','quá khứ','past'],['现在','xiànzài','hiện tại','present'],['后来','hòulái','về sau','later'],['时光','shíguāng','thời gian','passing time'],['改变','gǎibiàn','thay đổi','change']]},
+ culture:{vi:'Văn hóa',en:'Culture',words:[['文化','wénhuà','văn hóa','culture'],['传统','chuántǒng','truyền thống','tradition'],['历史','lìshǐ','lịch sử','history'],['诗','shī','thơ','poem'],['艺术','yìshù','nghệ thuật','art']]}
+};
+const tr=(vi,en)=>$('hskLanguage')?.value==='en'?en:vi;
+function fromStorage(key,fallback){try{const r=JSON.parse(localStorage.getItem(key)||'null');return r===null?fallback:r}catch{return fallback}}
+let mine=fromStorage(USER_KEY,[]),favorites=fromStorage(FAV_KEY,[]),links=fromStorage(LINK_KEY,{});
+if(!Array.isArray(mine))mine=[];if(!Array.isArray(favorites))favorites=[];if(!links||Array.isArray(links)||typeof links!=='object')links={};
+let current=null,quizN=0,quizLocked=false;
+ let quizStats=fromStorage(QUIZ_KEY,{total:0,correct:0,history:[]});
+ if(!quizStats||typeof quizStats!=='object'||!Number.isSafeInteger(quizStats.total)||quizStats.total<0||!Number.isSafeInteger(quizStats.correct)||quizStats.correct<0||quizStats.correct>quizStats.total||!Array.isArray(quizStats.history))quizStats={total:0,correct:0,history:[]};
+ function drawQuizStats(){const el=$('musQuizStats');if(!el)return;el.textContent=tr('Đã luyện: '+quizStats.total+' · Đúng: '+quizStats.correct,'Practiced: '+quizStats.total+' · Correct: '+quizStats.correct);}
+ function rememberQuiz(songId,word,ok){quizStats.total++;if(ok)quizStats.correct++;quizStats.history=[...quizStats.history.slice(-99),{songId,word,ok,when:new Date().toISOString()}];save(QUIZ_KEY,quizStats);drawQuizStats();}
+const save=(key,x)=>{try{localStorage.setItem(key,JSON.stringify(x))}catch(_){notice(tr('Bộ nhớ trình duyệt đã đầy hoặc bị tắt.','Browser storage is full or disabled.'),true)}};
+const all=()=>[...data,...mine];
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=String(txt);return e};
+function notice(message,error=false){const n=$('musFormNotice');n.textContent=message;n.style.color=error?'#ac453e':'#438052'}
+function parseVideo(raw){try{const u=new URL(String(raw||'').trim());const host=u.hostname.toLowerCase();let id='';if(host==='youtu.be'||host==='www.youtu.be')id=u.pathname.split('/')[1]||'';else if(['youtube.com','www.youtube.com','m.youtube.com','music.youtube.com','www.youtube-nocookie.com','youtube-nocookie.com'].includes(host)){const p=u.pathname.split('/').filter(Boolean);if(p[0]==='watch')id=u.searchParams.get('v')||'';else if(['embed','shorts','live'].includes(p[0]))id=p[1]||''}return /^[A-Za-z0-9_-]{11}$/.test(id)?id:''}catch{return ''}}
+function videoFor(song){return links[song.id]||song.videoId||''}
+function searchUrl(song){return 'https://www.youtube.com/results?search_query='+encodeURIComponent(song.name+' '+song.artist+' official music video')}
+function urlFor(song){return videoFor(song)?'https://www.youtube.com/watch?v='+videoFor(song):searchUrl(song)}
+function selectedName(s){return s.name+' · '+(s.artist||'YouTube')}
+function updateCount(){const favCnt=favorites.length;$('musMyCount').textContent=String(mine.length);$('musBuiltInCount').textContent=String(data.length)}
+function drawSongs(){const f=$('musLevelFilter').value,q=$('musSearch').value.trim().toLocaleLowerCase();const result=all().filter(s=>(f==='all'||(f==='mine'&&s.custom)||(f==='favs'&&favorites.includes(s.id))||(String(s.level)===f))&&(!q||[s.name,s.artist,TOPICS[s.topic]?.vi,TOPICS[s.topic]?.en].some(v=>String(v||'').toLocaleLowerCase().includes(q))));
+ const grid=$('musSongGrid');grid.replaceChildren();$('musEmpty').hidden=!!result.length;
+ result.forEach(s=>{const card=el('article','mus-song'+(current?.id===s.id?' is-active':''));
+ const top=el('div','mus-song-top'),level=el('span','mus-level','HSK '+s.level),fav=el('button','mus-fav'+(favorites.includes(s.id)?' is-fav':''),favorites.includes(s.id)?'★':'☆');fav.type='button';fav.title=tr('Đánh dấu yêu thích','Toggle favorite');fav.setAttribute('aria-label',fav.title+' '+s.name);fav.onclick=()=>{favorites=favorites.includes(s.id)?favorites.filter(id=>id!==s.id):[...favorites,s.id];save(FAV_KEY,favorites);drawSongs()};top.append(level,fav);
+ card.append(top,el('div','mus-song-title',s.name),el('div','mus-song-artist',(s.artist||'YouTube')+' · '+tr(TOPICS[s.topic]?.vi||'Sinh hoạt',TOPICS[s.topic]?.en||'Daily life')));
+ const actions=el('div','mus-song-actions'),open=el('button','',videoFor(s)?tr('▶ Nghe & học','▶ Listen & learn'):tr('♫ Chọn & tìm video','♫ Select & find video'));open.type='button';open.onclick=()=>choose(s);actions.append(open);
+ if(s.custom){const remove=el('button','mus-remove',tr('Xóa bài','Remove'));remove.type='button';remove.onclick=()=>{if(!confirm(tr('Xóa bài hát này khỏi danh sách cá nhân?','Remove this song from your personal list?')))return;mine=mine.filter(a=>a.id!==s.id);save(USER_KEY,mine);favorites=favorites.filter(id=>id!==s.id);save(FAV_KEY,favorites);delete links[s.id];save(LINK_KEY,links);if(current?.id===s.id)choose(data[0]);drawSongs();updateCount()};actions.append(remove)}
+ card.append(actions);grid.append(card)});updateCount()}
+function renderVideo(id){const box=$('musVideoBox');box.replaceChildren();if(id){const frame=el('iframe');frame.title=tr('YouTube: bài hát tiếng Trung','YouTube Mandarin song');frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.setAttribute('allowfullscreen','');frame.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?rel=0&playsinline=1';box.append(frame)}else{const p=el('div','mus-video-placeholder','🎧'),help=el('small','',tr('Chưa có video cụ thể. Bấm “Mở trên YouTube”, chọn video rồi dán link ở dưới.','No direct video yet. Open YouTube, select a video, then paste its link below.'));p.append(help);box.append(p)}}
+function choose(s){current=s;$('musPlayerTitle').textContent=s.name;$('musCurrentMeta').textContent=(s.artist||'YouTube')+' · HSK '+s.level+' · '+tr(TOPICS[s.topic]?.vi||'Sinh hoạt',TOPICS[s.topic]?.en||'Daily life');$('musYouTubeLink').href=urlFor(s);$('musYouTubeLink').textContent=videoFor(s)?tr('Mở video trên YouTube ↗','Watch on YouTube ↗'):tr('Tìm video trên YouTube ↗','Find video on YouTube ↗');$('musSelectedVideoUrl').value='';renderVideo(videoFor(s));renderWords();newQuiz();drawSongs()}
+function renderWords(){if(!current)return;const words=TOPICS[current.topic]?.words||TOPICS.daily.words;const v=$('musVocab');v.replaceChildren();words.forEach(w=>{const row=el('div','mus-word'),word=el('div'),meaning=el('div','mus-meaning',tr(w[2],w[3]));word.append(el('div','mus-zh',w[0]),el('div','mus-py',w[1]));row.append(word,meaning);v.append(row)});$('musWordIntro').textContent=tr('Từ vựng chủ đề “'+TOPICS[current.topic].vi+'”; không phải bản chép lời bài hát.','Topic vocabulary: '+TOPICS[current.topic].en+'. These are not lyrics.');}
+function newQuiz(){if(!current)return;const pool=TOPICS[current.topic]?.words||TOPICS.daily.words;quizN=(quizN+1)%pool.length;const word=pool[quizN],correct=tr(word[2],word[3]),other=Object.values(TOPICS).flatMap(t=>t.words.map(w=>tr(w[2],w[3]))).filter(x=>x!==correct);
+ let opts=[correct],pos=0;while(opts.length<4&&pos<other.length){const c=other[(pos*7+quizN*11)%other.length];if(!opts.includes(c))opts.push(c);pos++}opts=opts.map((x,i)=>({x,rand:(i*17+quizN*31)%13})).sort((a,b)=>a.rand-b.rand).map(o=>o.x);
+ $('musQuizQuestion').textContent=word[0]+' · '+word[1];const host=$('musQuizAnswers');host.replaceChildren();$('musQuizFeedback').textContent='';quizLocked=false;
+ opts.forEach(o=>{const b=el('button','',o);b.type='button';b.onclick=()=>{if(quizLocked)return;quizLocked=true;for(const x of host.children){x.disabled=true;if(x.textContent===correct)x.classList.add('mus-correct');else if(x===b)x.classList.add('mus-incorrect')}const ok=o===correct;$('musQuizFeedback').textContent=ok?'✓ '+tr('Đúng rồi!','Correct!'):'✦ '+tr('Đáp án: ','Answer: ')+correct;rememberQuiz(current?.id||'',word[0],ok)};host.append(b)})}
+function translations(){pane.querySelectorAll('[data-ui-vi][data-ui-en]').forEach(node=>{const value=node.getAttribute($('hskLanguage')?.value==='en'?'data-ui-en':'data-ui-vi');if(value!==null)node.textContent=value});drawQuizStats();const opt=$('musLevelFilter').options;opt[0].text=tr('Tất cả HSK 1–6','All HSK 1–6');opt[7].text=tr('💚 Bài của tôi','💚 My songs');opt[8].text=tr('⭐ Đã thích','⭐ Favorites');if(current){renderWords();newQuiz();$('musYouTubeLink').textContent=videoFor(current)?tr('Mở video trên YouTube ↗','Watch on YouTube ↗'):tr('Tìm video trên YouTube ↗','Find video on YouTube ↗')}drawSongs()}
+function openTab(){const panes=['vocabPane','grammarPane','sentencePane','listeningPane','readingPane','srsPane','roadmapPane','advancedPane','aiChatPane','themePane'];panes.forEach(id=>{const p=$(id);if(p)p.hidden=true});document.querySelectorAll('.app-tab').forEach(b=>{b.classList.toggle('selected',b===tab);b.setAttribute('aria-selected',b===tab?'true':'false')});pane.hidden=false;translations();document.title=tr('HSK 3.0 · Học tiếng Trung qua bài hát','HSK 3.0 · Learn Chinese with music');window.scrollTo({top:0,behavior:'instant'});if(!current)choose(data[0])}
+tab.addEventListener('click',openTab);
+document.querySelectorAll('.app-tab:not(#tabMusic)').forEach(b=>b.addEventListener('click',()=>{pane.hidden=true;tab.classList.remove('selected');tab.setAttribute('aria-selected','false');$('musVideoBox').querySelector('iframe')?.remove()},true));
+$('musAddForm').addEventListener('submit',ev=>{ev.preventDefault();const id=parseVideo($('musUserUrl').value);if(!id){notice(tr('Link chưa hợp lệ. Hãy dùng link YouTube video hoặc YouTube Shorts.','Invalid link. Please use a YouTube video or Shorts URL.'),true);return}if(mine.length>=150){notice(tr('Danh sách cá nhân đã có 150 bài. Hãy xóa bớt để thêm tiếp.','Your personal list has 150 songs. Remove some before adding more.'),true);return}
+ const exists=mine.find(x=>x.videoId===id)||data.find(x=>x.videoId===id);if(exists){notice(tr('Bài này đã có trong danh sách.','This video is already in the library.'),true);choose(exists);return}
+ const song={id:'mine-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),name:$('musUserName').value.trim().slice(0,90)||tr('Bài hát yêu thích','My favorite song'),artist:$('musUserArtist').value.trim().slice(0,90)||'YouTube',level:Number($('musUserLevel').value)||3,topic:$('musUserTopic').value in TOPICS?$('musUserTopic').value:'daily',videoId:id,custom:true};mine.unshift(song);save(USER_KEY,mine);$('musAddForm').reset();$('musLevelFilter').value='mine';$('musSearch').value='';notice(tr('Đã lưu trên thiết bị. Chọn Lưu lên Drive để sao lưu sang thiết bị khác.','Saved locally. Choose Save to Drive to back up across devices.'));choose(song)});
+$('musUseVideo').addEventListener('click',()=>{if(!current)return;const id=parseVideo($('musSelectedVideoUrl').value);if(!id){notice(tr('Hãy dán link video YouTube hợp lệ.','Please paste a valid YouTube video link.'),true);return}links[current.id]=id;save(LINK_KEY,links);renderVideo(id);$('musYouTubeLink').href=urlFor(current);$('musYouTubeLink').textContent=tr('Mở video trên YouTube ↗','Watch on YouTube ↗');notice(tr('Đã gắn video trên thiết bị. Chọn Lưu lên Drive để sao lưu.','Video linked locally. Choose Save to Drive to back it up.'));drawSongs()});
+$('musOpenDrive').addEventListener('click',()=>window.HSK30DriveSync?.open());drawQuizStats();
+$('musSearch').addEventListener('input',drawSongs);$('musLevelFilter').addEventListener('change',drawSongs);$('musNextQuiz').addEventListener('click',newQuiz);
+$('hskLanguage')?.addEventListener('change',translations);
+if(location.hash==='#music'||location.hash==='#am-nhac')tab.click();
+window.HSK30Music={open:()=>tab.click(),getCount:()=>data.length,getCustomCount:()=>mine.length};
+})();
+
+</script>
+</body></html>
